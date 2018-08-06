@@ -20,9 +20,6 @@ AUTHOR_FEED_RSS = None
 
 DEFAULT_LANG = 'en'
 
-# GITHUB_USER = 'dmsul'
-# GITHUB_SKIP_FORK = True
-
 INDEX_SAVE_AS = 'blog.html'
 
 HOMEDIR = os.path.expanduser('~')
@@ -36,7 +33,7 @@ JINJA_ENVIRONMENT = {
 
 I18N_TEMPLATES_LANG = 'en'
 
-BOOTSTRAP_THEME = 'cosmo'
+BOOTSTRAP_THEME = 'flatly'
 
 FEED_DOMAIN = SITEURL
 
@@ -50,21 +47,24 @@ MENUITEMS = (
     ('Contact', '/pages/contact.html'),
 )
 
-if 0:
-    LINKS = (('Pelican', 'http://getpelican.com/'),
-             ('Python.org', 'http://python.org/'),
-             ('Jinja2', 'http://jinja.pocoo.org/'),
-             ('You can modify those links in your config file', '#'),)
-
 # Social widget
+# GITHUB_USER = 'dmsul'
+# GITHUB_SKIP_FORK = True
+
 SOCIAL = (
-    ('Github', 'http://github.com/dmsul', 'github-alt'),
+    ('Github', 'http://github.com/dmsul'),
+    ('Twitter', 'https://twitter.com/dmsul'),
+    ('Email', 'mailto:sullivan@rff.org', 'envelope'),
+)
+
+LINKS = (
     ('Google Scholar',
-     'https://scholar.google.com/citations?user=naLX3CIAAAAJ',
-     'graduation-cap'),
-    ('ORCID', 'http://orcid.org/0000-0002-0380-7681', 'id-card-alt'),
+     'https://scholar.google.com/citations?user=naLX3CIAAAAJ'),
+    ('ORCID', 'http://orcid.org/0000-0002-0380-7681'),
+    ('RePEc', 'https://ideas.repec.org/f/psu490.html'),
     ('RFF page', 'http://www.rff.org/people/profile/daniel-m-sullivan'),
 )
+
 
 DEFAULT_PAGINATION = False
 DEFAULT_ORPHANS = 0
