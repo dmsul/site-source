@@ -75,5 +75,10 @@ SUMMARY_MAX_LENGTH = 65
 
 AVATAR = 'images/dms_med.jpg'
 
-STATIC_PATHS = ['images', 'static', 'pdf', 'extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}}
+CUSTOM_CSS = 'static/css/custom.css'
+
+STATIC_PATHS = ['images', 'static', 'pdf', 'extra/CNAME', ' extra/custom.css']
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+    'extra/custom.css': {'path': 'static/css/custom.css'}
+}
