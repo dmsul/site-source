@@ -71,7 +71,6 @@ SUMMARY_MAX_LENGTH = 65
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
-# DELETE_OUTPUT_DIRECTORY = True
 # XXX must be commented out when live
 
 AVATAR = 'images/dms_med.jpg'
