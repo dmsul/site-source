@@ -62,7 +62,8 @@ SOCIAL = (
     ('Google Scholar',
      'https://scholar.google.com/citations?user=naLX3CIAAAAJ',
      'graduation-cap'),
-    ('ORCID', 'http://orcid.org/0000-0002-0380-7681', 'id-card-alt')
+    ('ORCID', 'http://orcid.org/0000-0002-0380-7681', 'id-card-alt'),
+    ('RFF page', 'http://www.rff.org/people/profile/daniel-m-sullivan'),
 )
 
 DEFAULT_PAGINATION = False
@@ -82,3 +83,5 @@ EXTRA_PATH_METADATA = {
     'extra/CNAME': {'path': 'CNAME'},
     'extra/custom.css': {'path': 'static/css/custom.css'}
 }
+
+GOOGLE_ANALYTICS = '88761020'
