@@ -84,4 +84,4 @@ EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': 'static/css/custom.css'}
 }
 
-GOOGLE_ANALYTICS = '88761020'
+GOOGLE_ANALYTICS = 'UA-88761020-1'
