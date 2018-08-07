@@ -45,6 +45,7 @@ MENUITEMS = (
     ('Research', '/pages/research.html'),
     ('Code', '/pages/code.html'),
     ('Contact', '/pages/contact.html'),
+    ('Blog', 'blog.html')
 )
 
 # Social widget
