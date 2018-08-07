@@ -41,7 +41,7 @@ FEED_DOMAIN = SITEURL
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 MENUITEMS = (
-    ('CV', '/pdf/cv.pdf'),
+    ('CV', '/pdf/Sullivan_CV.pdf'),
     ('Research', '/pages/research.html'),
     ('Code', '/pages/code.html'),
     ('Contact', '/pages/contact.html'),
