@@ -8,8 +8,9 @@
 Working Papers
 --------------
 
-- **"The Benefits of Uniform Compliance with National Air Quality Standards"** with Alan Krupnick |br|
-  May 2018 
+- **"Using Satellite Data to Fill the Gaps in the U.S. Air Pollution Monitoring
+  Network"** with Alan Krupnick |br|
+  August 2018 
 - **"The True Cost of Air Pollution: Evidence from the Housing Market"** |br|
   March 2017 |pollhouse|_
 - **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
