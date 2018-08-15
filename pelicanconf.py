@@ -5,7 +5,7 @@ import os
 
 AUTHOR = 'Daniel M. Sullivan'
 SITENAME = 'Daniel M. Sullivan'
-SITEURL = 'http://www.danielmsullivan.com'
+SITEURL = ''
 
 PATH = 'content'
 
@@ -26,7 +26,7 @@ HOMEDIR = os.path.expanduser('~')
 THEME = os.path.join(HOMEDIR, 'proj', 'pelican-themes', 'pelican-bootstrap3')
 
 PLUGIN_PATHS = [HOMEDIR + '/proj/pelican-plugins', ]
-PLUGINS = ['i18n_subsites']
+PLUGINS = ['i18n_subsites', 'html_rst_directive']
 JINJA_ENVIRONMENT = {
     "extensions": ['jinja2.ext.i18n'],
 }
@@ -34,6 +34,7 @@ JINJA_ENVIRONMENT = {
 I18N_TEMPLATES_LANG = 'en'
 
 BOOTSTRAP_THEME = 'flatly'
+# PYGMENTS_STYLE = 'default'
 
 FEED_DOMAIN = SITEURL
 
@@ -76,7 +77,7 @@ SUMMARY_MAX_LENGTH = 65
 
 AVATAR = 'images/dms_med.jpg'
 
-CUSTOM_CSS = 'static/css/custom.css'
+# CUSTOM_CSS = 'static/css/custom.css'  # XXX Can't get it to work
 
 STATIC_PATHS = ['images', 'static', 'pdf', 'extra/CNAME', ' extra/custom.css']
 EXTRA_PATH_METADATA = {

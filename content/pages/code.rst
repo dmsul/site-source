@@ -20,3 +20,8 @@ Stata syntax for Vim
 syntax package that comes with Vim. It covers more commands and situation and
 also includes some minimal folding. It can be installed using Pathogen,
 VimPlug, etc.
+
+Tutorials
+---------
+
+* `Using Git <git_tutorial.html>`_
