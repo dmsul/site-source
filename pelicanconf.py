@@ -5,7 +5,7 @@ import os
 
 AUTHOR = 'Daniel M. Sullivan'
 SITENAME = 'Daniel M. Sullivan'
-SITEURL = ''
+SITEURL = 'http://www.danielmsullivan.com'
 
 PATH = 'content'
 

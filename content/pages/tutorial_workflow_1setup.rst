@@ -9,13 +9,8 @@
 * Next: TBD.
 
 
-This document is primarily for research assistants new to our team.  However,
-it contains a lot of tools that others doing code-heavy research might find
-useful, especially in social sciences which have little if any formal training
-in programming.
-
-Setup
------
+Software Installation
+~~~~~~~~~~~~~~~~~~~~~
 
 You'll need accounts with the following websites if you don't already have one.
 These are accounts that you'll likely have for a long time, so don't worry
@@ -24,10 +19,6 @@ about tieing them to your work email.
 #. `Trello <https://trello.com/danielsullivan49/recommend>`__
 #. `Bitbucket <https://www.bitbucket.org>`__
 #. `Github <https://www.github.com>`__
-
-
-Software Installation
-~~~~~~~~~~~~~~~~~~~~~
 
 You'll also need a bunch of new software.
 
