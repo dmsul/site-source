@@ -24,5 +24,5 @@ VimPlug, etc.
 Tutorials
 ---------
 
-* `Writing Code in Economics <workflow_tutorial.html>`_
-* `Using Git <git_tutorial.html>`_
+* `Writing Code in Economics <tutorial_workflow_0overview.html>`_
+* `Using Git <tutorial_git_0overview.html>`_

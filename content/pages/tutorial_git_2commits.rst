@@ -1,72 +1,15 @@
-:Title: A brief intro to Git
-:slug: git_tutorial
+:Title: First steps: Making commits
+:slug: tutorial_git_2commits
+:series: GIT_TUTORIAL
+:series_index: 3
 
 .. sectnum::
-    :start: 0
+
+* `Overview <tutorial_git_0overview.html>`__
+* Previous: `Setup <tutorial_git_1setup.html>`__
+* Next: Branches and merging.
 
 .. contents::
-
-Set up git
-----------
-
-First, make sure you can access git from the command line by executing the
-following command:
-
-.. code-block:: shell-session
-    
-    $ git --version
-
-You should see something like this:
-
-.. code-block:: shell-session
-
-    $ git --version
-    git version 2.17.1.windows.2
-
-If instead you see :code:`bash: git: command not found`, double check you have git
-installed. [Coming soon: Tutoral on installation and making sure this works.]
-
-Second, configure git to fit you.
-Instead of a options menu, git is configured through a :code:`.gitconfig` file
-in your home directory.
-You can quickly set it up by copying the following settings into your
-:code:`.gitconfig` file:
-
-.. code-block:: linux-config
-
-    [user]
-            name = Firstname Lastname               # Fill this in
-            email = me@mailhost.com                 # Fill this in
-    [push]
-            default = matching
-    [core]
-            excludesfile = ~/.gitignore_global
-            autocrlf = false
-            fileMode = false
-            editor = atom                           # Fill this in
-    [color]
-            ui = true
-    [difftool]
-            prompt = false
-    [alias]
-            st = status
-            ci = commit
-            ch = checkout
-            br = branch -vva
-            shortlog = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold yellow)%d%C(reset) %C(white)%s%C(reset)' --all
-
-
-Double check that your :code:`.gitconfig` is ready by running this command:
-
-.. code-block:: shell-session
-
-    $ cat ~/.gitconfig
-
-The :code:`cat` command will print the file on your screen.
-
-
-Getting started
-------------------
 
 Set up a new code project
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -292,7 +235,3 @@ won't be directly using the hashes in this tutorial for a while.
 
 After the hash is the commit message we wrote. :code:`(HEAD -> master)` marks what
 the most recent commit is. Don't worry about this just yet, we'll get to it.
-
-
-Branches and Merging
---------------------

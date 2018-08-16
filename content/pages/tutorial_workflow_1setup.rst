@@ -1,8 +1,13 @@
-:Title: Writing Code for Research
-:slug: workflow_tutorial
+:Title: Software Setup
+:slug: tutorial_workflow_1setup
 
 .. sectnum::
     :start: 1
+
+
+* `Overview <tutorial_workflow_0overview.html>`__
+* Next: TBD.
+
 
 This document is primarily for research assistants new to our team.  However,
 it contains a lot of tools that others doing code-heavy research might find
