@@ -8,6 +8,8 @@
 * `Overview <tutorial_git_0overview.html>`__
 * Next: `First Steps: Making Commits <tutorial_git_2commits.html>`__
 
+------
+
 First, make sure you can access git from the command line by executing the
 following command:
 

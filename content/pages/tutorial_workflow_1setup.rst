@@ -8,6 +8,10 @@
 * `Overview <tutorial_workflow_0overview.html>`__
 * Next: `Project Organization <tutorial_workflow_2project_org.html>`__
 
+.. contents::
+
+-----
+
 
 You'll need accounts with the following websites if you don't already have one.
 These are accounts that you'll likely have for a long time, so don't worry
@@ -61,6 +65,10 @@ CMDer
 This is only for people on Windows because Windows has awful command line
 interfaces (shells). CMDer is an attempt to fix that. Download it `here
 <cmder.net>`__.
+
+Also, once you have Git installed, you can use Git bash through CMDer to have
+access to all the amazing tools there like :code:`grep`, :code:`head`, even
+:code:`ssh`.
 
 
 Python (via Anaconda)

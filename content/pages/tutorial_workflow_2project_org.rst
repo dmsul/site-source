@@ -10,9 +10,11 @@
 
 .. contents::
 
+-----
+
 ..
 
-    Never memorize anything you can look up.
+    "Never memorize anything you can look up."
     ~ Albert Einstein, maybe
 
 It's a good idea to keep your code organized. As projects get bigger, and as
@@ -93,22 +95,22 @@ The folder where the data files are stored still has a set structure:
         |── src/
 
 The key principle here is to preserve the source data for each project which is
-kept in :code:`src`. The rule is that raw data goes from the BLS website or
-where ever it came from straight into :code:`src` and the raw files are never
+kept in :code:`src/`. The rule is that raw data goes from the BLS website or
+where ever it came from straight into :code:`src/` and the raw files are never
 touched again. *Never manually edit the raw CSV files.* All cleaning is
 programmatic, which means that you should be able to download the data fresh
-from the source and immediately run the code.  files from :code:`src` and save
-them to :code:`data-project-name-data`. That way you know that anything not in
-:code:`src` was created by you and can be deleted as long as you still have the
+from the source and immediately run the code.  files from :code:`src/` and save
+them to :code:`data-project-name-data/`. That way you know that anything not in
+:code:`src/` was created by you and can be deleted as long as you still have the
 code that created the file in the first place.
 
 
 Define data locations once (and only once)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The :code:`util` folder is for scripts that will be used a lot within the data
+The :code:`util/` folder is for scripts that will be used a lot within the data
 cleaning itself but not by any other Python code or projects. In fact,
-:code:`util` will often just contain a single file, :code:`env.py`. The
+:code:`util/` will often just contain a single file, :code:`env.py`. The
 :code:`util/env.py` file contains environmental variables for the project,
 hence the name. These are variables like where on the hard drive the raw data
 are stored.  A basic :code:`util/env.py` file looks like this:
@@ -247,7 +249,7 @@ the literature we'll need to refer to).
 Output path
 ~~~~~~~~~~~
 
-The :code:`util` folder is the same as above. The :code:`util/env.py` file will
+The :code:`util/` folder is the same as above. The :code:`util/env.py` file will
 also have an :code:`out_path` function that defines where we want the output of
 analyses saved.  This will usually just point to the :code:`out/` folder,
 however we will often keep the :code:`out/` folder on Dropbox so we can always
@@ -276,20 +278,20 @@ To avoid this, the :code:`code/` folder has a hierarchical structure:
    but that's it.
 #. :code:`analysis/`: This is for prepping regression files and the like.
    Remember to define things once and only once. This goes for regression
-   samples, too, and :code:`analysis` is the place to put them. Can import from
+   samples, too, and :code:`analysis/` is the place to put them. Can import from
    :code:`util/` and :code:`clean/`.
 #. The root folder, :code:`code/`: this is where we put scripts that create
    final output. Regressions, figures, summary stats, all here. These scripts
    can import from anywhere else in the project and they should never be
    imported from. If you write a function in `reg_main.py` that you want to use
-   somehwere else, move it to :code:`analysis` first.
+   somehwere else, move it to :code:`analysis/` first.
 
-    The final output scripts in :code:`code/` are prefixed by what they do,
-    :code:`summ_` for summary stats, :code:`plot_` for plots, etc.
+   The final output scripts in :code:`code/` are prefixed by what they do,
+   :code:`summ_` for summary stats, :code:`plot_` for plots, etc.
 
-Finally, there's :code:`driver.sh`. In theory, this is a simple script that if
-run would ideally create all the final tables and figures for our paper. In
-practice, the script is never run but serves as a shopping list of sorts to
+Finally, there's :code:`driver.sh`. In theory, this is a simple script that
+ideally would create all the final tables and figures for our paper. In
+practice, the script is rarely run but serves as a shopping list of sorts to
 remind us of the command line options, etc., that we've settled on. A simple
 example is:
 
