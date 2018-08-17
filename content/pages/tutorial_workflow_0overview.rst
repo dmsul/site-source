@@ -9,5 +9,5 @@ useful, especially in social sciences which have little if any formal training
 in programming.
 
 #. `Software Setup <tutorial_workflow_1setup.html>`__
-#. `Project Organization <tutorial_workflow_2project_org.html>`__
+#. `Project File Organization <tutorial_workflow_2project_org.html>`__
 #. TBD

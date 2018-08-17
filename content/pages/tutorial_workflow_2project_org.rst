@@ -16,10 +16,11 @@
     ~ Albert Einstein, maybe
 
 It's a good idea to keep your code organized. As projects get bigger, and as
-you step away from them and return, it's easier to get lost.  To paraphrase the
-supposed Einstein quote, it's easier to come back to code after a long time and
-go through logic like "a script like X would probably be in folder Y" than it
-is to read through every file and every folder searching for X.
+you step away from them and return, it's easier to get lost.  A corollary to
+the supposed Einstein quote is "never memorize anything you can re-derive when
+you need it." It's easier to come back to code after a long time and go through
+logic like "a script like X would probably be in folder Y" than it is to read
+through every file and every folder searching for X.
 
 The file and folder structure outlined here is one way to do that.
 
