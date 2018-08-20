@@ -26,7 +26,7 @@ HOMEDIR = os.path.expanduser('~')
 THEME = os.path.join(HOMEDIR, 'proj', 'pelican-themes', 'pelican-bootstrap3')
 
 PLUGIN_PATHS = [HOMEDIR + '/proj/pelican-plugins', ]
-PLUGINS = ['i18n_subsites', 'series']
+PLUGINS = ['i18n_subsites', 'series', 'html_rst_directive']
 JINJA_ENVIRONMENT = {
     "extensions": ['jinja2.ext.i18n'],
 }

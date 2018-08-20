@@ -26,3 +26,4 @@ Tutorials
 
 * `Writing Code in Economics <tutorial_workflow_0overview.html>`_
 * `Using Git <tutorial_git_0overview.html>`_
+* `(Very) Basics of Vim <tutorial_vim.html>`_
