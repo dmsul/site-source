@@ -66,7 +66,7 @@ CMDer
 
 This is only for people on Windows because Windows has awful command line
 interfaces (shells). CMDer is an attempt to fix that. Download it `here
-<cmder.net>`__.
+<http://www.cmder.net>`__.
 
 Also, once you have Git installed, you can use Git bash through CMDer to have
 access to all the amazing tools there like :code:`grep`, :code:`head`, even
