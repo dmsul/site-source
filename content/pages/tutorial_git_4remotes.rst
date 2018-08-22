@@ -47,6 +47,12 @@ You can also tell Git to name your cloned repo something else:
 This will clone the :code:`econtools` Git repo into a folder called
 :code:`different-folder-name/` instead of :code:`econtools/`.
 
+Pull
+----
+
+Push
+----
+
 ------
 
 .. [#] The problem is that all information about the Git repository is stored
