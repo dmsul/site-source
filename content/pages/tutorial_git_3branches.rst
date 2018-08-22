@@ -7,7 +7,7 @@
 
 * `Overview <tutorial_git_0overview.html>`__
 * Previous: `First Steps: Making commits <tutorial_git_2commits.html>`__
-* Next: Remotes: Sharing Code Online
+* Next: `Remotes: Sharing Code Online <tutorial_git_4remotes.html>`__
 
 .. contents::
 
@@ -399,3 +399,47 @@ we finish the merge:
 
     $ git merge --continue
     [master 2f40bfd] Merge branch 'new-quote'
+
+Looking at the log, we can see that all of our changes have been incorporated
+into :code:`master`.
+
+.. code-block:: shell-session
+
+    $ git shortlog
+    *   2f40bfd -  (HEAD -> master) Merge branch 'new-quote'
+    |\
+    | * 44425b9 -  (new-quote) Change to_print string
+    * |   fdebe3f -  Merge branch 'add-subroutine'
+    |\ \
+    | |/
+    |/|
+    | * fed0858 -  (add-subroutine) Use print_thrice
+    | * eb198f3 -  Add superprinter
+    |/
+    * 7d6a299 -  Added a variable to hello.py
+    * 823459f -  Add hello.py
+
+At this point, we don't need the :code:`add-subroutine` and :code:`new-quote`
+branch labels, so we can delete them.
+
+.. code-block:: shell-session
+
+    $ git branch -d add-subroutine
+    Deleted branch add-subroutine (was fed0858).
+
+    $ git branch -d new-quote
+    Deleted branch new-quote (was 44425b9).
+
+    $ git shortlog
+    *   2f40bfd -  (HEAD -> master) Merge branch 'new-quote'
+    |\
+    | * 44425b9 -  Change to_print string
+    * |   fdebe3f -  Merge branch 'add-subroutine'
+    |\ \
+    | |/
+    |/|
+    | * fed0858 -  Use print_thrice
+    | * eb198f3 -  Add superprinter
+    |/
+    * 7d6a299 -  Added a variable to hello.py
+    * 823459f -  Add hello.py
