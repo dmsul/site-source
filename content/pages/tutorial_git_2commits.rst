@@ -5,6 +5,8 @@
 
 .. sectnum::
 
+A Brief Intro to Git:
+
 * `Overview <tutorial_git_0overview.html>`__
 * Previous: `Setup <tutorial_git_1setup.html>`__
 * Next: Branches and merging.

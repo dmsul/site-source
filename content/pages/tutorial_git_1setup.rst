@@ -1,12 +1,16 @@
 :Title: Setting up Git
 :slug: tutorial_git_1setup
 :series: GIT_TUTORIAL
-:series_index: 1
+:series_index: 2
 
 .. sectnum::
 
+A Brief Intro to Git:
+
 * `Overview <tutorial_git_0overview.html>`__
 * Next: `First Steps: Making Commits <tutorial_git_2commits.html>`__
+
+------
 
 First, make sure you can access git from the command line by executing the
 following command:

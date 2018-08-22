@@ -9,4 +9,5 @@ useful, especially in social sciences which have little if any formal training
 in programming.
 
 #. `Software Setup <tutorial_workflow_1setup.html>`__
-#. TBD.
+#. `Project File Organization <tutorial_workflow_2project_org.html>`__
+#. `Best Practices when Writing Python <tutorial_workflow_3python.html>`__

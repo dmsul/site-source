@@ -5,12 +5,15 @@
     :start: 1
 
 
+Writing Code in Econ:
+
 * `Overview <tutorial_workflow_0overview.html>`__
-* Next: TBD.
+* Next: `Project Organization <tutorial_workflow_2project_org.html>`__
 
+.. contents::
 
-Software Installation
-~~~~~~~~~~~~~~~~~~~~~
+-----
+
 
 You'll need accounts with the following websites if you don't already have one.
 These are accounts that you'll likely have for a long time, so don't worry
@@ -33,7 +36,7 @@ greatly from having a single, professional-grade text editor. This is true for
 two reasons.
 
 First, real text editors have a number of features
-designed to make your life easier, like auto-completion, git integration,
+designed to make your life easier, like auto-completion, Git integration,
 syntax checking/linting, code folding, project-level search and replace, etc.
 Some built-in editors have some of these features. Some have few or none.
 
@@ -41,8 +44,8 @@ Second, using a single editor across all languages means that as you get better
 in one language, you get better in all of them. You have one set of keyboard
 shortcuts to learn, one set of options to set, one set of tricks to master.
 
-If you're not already attached to serious editor (Vim, emacs, sublime text), I
-recommend you start with `Atom <https://atom.io/>`_.
+If you're not already attached to a serious editor (Vim, Emacs, Sublime Text),
+I recommend you start with `Atom <https://atom.io/>`_.
 
 Git
 +++
@@ -50,11 +53,12 @@ Git
 Download Git `here <https://git-scm.com/downloads>`__. If you're not on Windows
 you might have other ways of getting Git on your computer.
 
-You will be asked if you want git to be in your PATH and if you want
-git-related tools in your PATH. Choose to have git in your PATH but not the
+You will be asked if you want Git to be in your PATH and if you want
+Git-related tools in your PATH. Choose to have Git in your PATH but not the
 tools.
 
-[Config setup, link to git tutorial]
+More info on setting up and using Git can be found `here
+<tutorial_git_0overview.html>`__.
 
 
 CMDer
@@ -62,7 +66,11 @@ CMDer
 
 This is only for people on Windows because Windows has awful command line
 interfaces (shells). CMDer is an attempt to fix that. Download it `here
-<cmder.net>`__.
+<http://www.cmder.net>`__.
+
+Also, once you have Git installed, you can use Git bash through CMDer to have
+access to all the amazing tools there like :code:`grep`, :code:`head`, even
+:code:`ssh`.
 
 
 Python (via Anaconda)
@@ -81,6 +89,11 @@ packages, or you can install "Miniconda" which will not install any packages
 until you ask it to. In either case, I recommend you install it to
 :code:`C:\Anaconda` if you are on Windows.
 
+There are lots of articles online about getting started with Anaconda.
+`This
+<https://medium.freecodecamp.org/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c>`__
+is a random one I found that looks okay.
+
 
 Other
 +++++
@@ -88,7 +101,7 @@ Other
 These are optional or as the need arises.
 
 #. `Sourcetree <https://www.sourcetreeapp.com/>`_. This is an easy way to
-   visualize git repositories.
+   visualize Git repositories.
 #. Trello desktop app. As long as you're not on Windows 7, you should be able
    to get the Trello desktop app, which I think is alittle nicer to use
    regularly than the in-browser version.
