@@ -1,7 +1,7 @@
 :Title: Setting up Git
 :slug: tutorial_git_1setup
 :series: GIT_TUTORIAL
-:series_index: 1
+:series_index: 2
 
 .. sectnum::
 

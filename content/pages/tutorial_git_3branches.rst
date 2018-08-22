@@ -292,12 +292,110 @@ Now, if we look at our log, we can see why branches are called "branches":
 
 The branching is even more evident if we use a graphical Git interface:
 
-.. image:: 
+.. image:: {filename}/images/git_graph.png
+    :alt: Git graph
 
 We now have three named versions of our code, :code:`master`,
-:code:`add-subroutine`, and :code:`new-quote`.
+:code:`add-subroutine`, and :code:`new-quote`. The next step is bringing these
+branches back together.
 
 Merging
 -------
 
-Wut.
+Being able to create multiple versions of our code is not very helpful if we
+can't reconcile the multiple versions and combine them somehow. Git handles
+this with the :code:`merge` command.
+
+First, check out the "older" branch that needs to be updated.
+
+.. code-block:: shell-session
+
+    $ git checkout master
+
+Then merge the branch you want to keep. In our research group, we will also use
+the "no fast forward" option to make it more apparent where merges occur.
+Let's merge :code:`add-subroutine` first.
+
+.. code-block:: shell-session
+
+    $ git merge --no-ff add-subroutine
+    Merge made by the 'recursive' strategy.
+     hello.py        | 4 +++-
+     superprinter.py | 5 +++++
+     2 files changed, 8 insertions(+), 1 deletion(-)
+     create mode 100644 superprinter.py
+
+    $ git subroutine
+    *   fdebe3f -  (HEAD -> master) Merge branch 'add-subroutine'
+    |\
+    | * fed0858 -  (add-subroutine) Use print_thrice
+    | * eb198f3 -  Add superprinter
+    |/
+    | * 44425b9 -  (new-quote) Change to_print string
+    |/
+    * 7d6a299 -  Added a variable to hello.py
+    * 823459f -  Add hello.py
+
+
+Resolving conflicts in merges
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now merge :code:`new-quote` to :code:`master`. Because our two branches both
+changed :code:`hello.py`, Git can't easily merge the changes.
+
+.. code-block:: shell-session
+
+    $ git merge --no-ff new-quote
+    Auto-merging hello.py
+    CONFLICT (content): Merge conflict in hello.py
+    Automatic merge failed; fix conflicts and then commit the result.
+
+    $ git status
+    On branch master
+    You have unmerged paths.
+      (fix conflicts and run "git commit")
+      (use "git merge --abort" to abort the merge)
+
+    Unmerged paths:
+      (use "git add <file>..." to mark resolution)
+
+            both modified:   hello.py
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+        
+Git will create a version of the file with the conflicts marked with
+:code:`<<<`, :code:`===`, and :code:`>>>`.
+
+.. code-block:: shell-session
+
+    $ cat hello.py
+    <<<<<<< HEAD
+    from superprinter import print_thrice
+
+    to_print = "Hello, world!"
+    print_thrice(to_print)
+    =======
+    to_print = "That rug really tied the room together, did it not?"
+    print(to_print)
+    >>>>>>> new-quote
+
+Now you can pick and choose which parts of each version you want.
+
+Combine them so that :code:`hello.py` looks like this
+
+.. code-block:: python3
+
+    from superprinter import print_thrice
+
+    to_print = "That rug really tied the room together, did it not?"
+    print_thrice(to_print)
+
+Which implements both major changes we made. Once we're done editing the file,
+we finish the merge:
+
+.. code-block:: shell-session
+
+    $ git add hello.py
+
+    $ git merge --continue
+    [master 2f40bfd] Merge branch 'new-quote'
