@@ -297,42 +297,56 @@ The "change" commands delete the desired text and immediately enters insert mode
   replace/overwrite mode in Word)  
 
 
-## Registers (for yank and paste).  :code:`"\<char>y` - yank to register
-:code:`<char>:code:`.  This allows you to have multiple things in your
-clipboard. Note the Vim clipboard is separate from the OS clipboard. To move
-between the two (copy/paste between Vim and another program) use the *
-register, so:
+Other stuff
+-----------
 
-:code:`y$` - yanks to end of line, puts in default register  :code:`"a$` - yank
-to register "a"  :code:`"*yG` - yanks to end of file, puts in OS register
-:code:`p` - pastes what's in the default register (after the cursor, like
-:code:`a:code:`)  :code:`P` - paste before cursor (like command
-:code:`i:code:`)  :code:`"*p` - pastes what's in the OS register (i.e., if you
-already yanked to * or you did a Ctrl+C copy in another program)
+Registers (for yank and paste)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-NOTE: deleting text puts that text into the default register, so if you
+:code:`"<char>y` - yank to register :code:`<char>`.  This allows you to have
+multiple things in your clipboard. Note the Vim clipboard is separate from the
+OS clipboard. To move between the two (copy/paste between Vim and another
+program) use the :code:`*` register, so:
+
+* :code:`y$` - yanks to end of line, puts in default register  
+* :code:`"a$` - yank to register "a"  
+* :code:`"*yG` - yanks to end of file, puts in OS register
+* :code:`p` - pastes what's in the default register (after the cursor, like
+  :code:`a:code:`)  
+* :code:`P` - paste before cursor (like command :code:`i:code:`)  
+* :code:`"*p` - pastes what's in the OS register (i.e., if you already yanked
+  to * or you did a Ctrl+C copy in another program)
+
+**NOTE:** deleting text puts that text into the default register, so if you
 :code:`yy:code:`, move to another line, then :code:`dd:code:`, you'll lose
 whatever whatever you yanked with :code:`yy:code:`. There is a plugin to
 override this behavior (I think by Tim Pope).
 
+Substitution
+~~~~~~~~~~~~
 
-# Substitution :code:`:<range>s/<re>/<str>/<flags>` - substitute first instance
-of :code:`<re>` in each line in :code:`<range>` with :code:`<str>:code:`.
+:code:`:<range>s/<re>/<str>/<flags>` - substitute first instance of
+:code:`<re>` in each line in :code:`<range>` with :code:`<str>`.
 :code:`<flags>` change default behavior.
 
-- :code:`<range>:code:`: - default range is this line only  - :code:`%` -
-  global (whole file)  - :code:`<a>,<b>` - between lines/markers/etc  -
-  :code:`.` - current line  - :code:`$` - last line in file (so :code:`:.,$s`
-  is "from here to end of file")  - *Note*: There are other :code:`<range>`
-  things, most common is just :code:`%:code:`.  
+* :code:`<range>`:
+    * default range is this line only  
+    * :code:`%` - global (whole file)  
+    * :code:`<a>,<b>` - between lines/markers/etc  
+    * :code:`.` - current line  
+    * :code:`$` - last line in file (so :code:`:.,$s` is "from here to end
+      of file")  
+    * There are other :code:`<range>` things, most common is just
+      :code:`%`.  
+* :code:`<flags>` 
+    * :code:`g` - global/all instances of :code:`<re>` on line (not just
+      first instance on line)  
+    * :code:`c` - confirm (will highlight next instance of :code:`<re>` and
+      ask you to press "y" to execute change  
+    * :code:`i` - case insensitive  
 
-- :code:`<flags>:code:`: - :code:`g` - global/all instances of :code:`<re>` on
-  line (not just first instance on line)  - :code:`c` - confirm (will highlight
-  next instance of :code:`<re>` and ask you to press "y" to execute change  -
-  :code:`i` - case insensitive  
-
-Specific sub: Use :code:`\zs` and :code:`\ze` to demark a sub-RegEx within the
-matched RegEx that should be substituted. Example: 
+Specific substitution: Use :code:`\zs` and :code:`\ze` to demark a sub-RegEx
+within the matched RegEx that should be substituted. Example: 
 
 :code:`:%s/Year \zs2007\ze is over/2008/g`
 
@@ -350,23 +364,29 @@ space(s) after it (unless the cursor is already at the beginning of the word).
 A shortcut around this is these motion-like object commands.
 
 :code:`daw` - Delete "a" "word". Deletes the current word and space(s) after
-it.  :code:`diw` - Delete "inner" "word". Deletes current word but not trailing
-space(s).  :code:`dap` - Delete a paragraph. A "paragraph" to Vim is a group of
-consecutive lines of text between an empty line(s).  :code:`yaw` - Yanks a
-word.  :code:`yiw` - Yanks inner word.  :code:`ya(` - Yank a parenthetical. If
+it.  
+:code:`diw` - Delete "inner" "word". Deletes current word but not trailing
+space(s).  
+:code:`dap` - Delete a paragraph. A "paragraph" to Vim is a group of
+consecutive lines of text between an empty line(s).  
+:code:`yaw` - Yanks a
+word.  
+:code:`yiw` - Yanks inner word.  
+:code:`ya(` - Yank a parenthetical. If
 cursor between (), yank everything between those parens and the parens
-themselves. Else do Nothing.  :code:`yi(` - Yank inner parenthetical. Like
-:code:`ya(:code:`, but excluding the parens.  :code:`ya)` - :code:`ya(`
-:code:`ya[` - Same as :code:`ya(` but for brackets :code:`[]:code:`.
+themselves. Else do Nothing.  
+:code:`yi(` - Yank inner parenthetical. Like :code:`ya(:code:`, but excluding the parens.  
+:code:`ya)` - :code:`ya(`
+:code:`ya[` - Same as :code:`ya(` but for brackets :code:`[]`.
 :code:`ya"` - Same  
 
-:code:`da(` - Deletes a parenthetical.  :code:`di(` - Deletes within
-parenthetical.  
-
+:code:`da(` - Deletes a parenthetical.
+:code:`di(` - Deletes within parenthetical.  
 :code:`g~i(` - Toggles the case of the inner parenthetical.  
 
-:code:`ciw` - Change inner word  :code:`ci[` - Change inner (within) brackets
-(delete text within brackets and enter Insert Mode).  
+:code:`ciw` - Change inner word  
+:code:`ci[` - Change inner (within) brackets (delete text within brackets and
+enter Insert Mode).  
 
 
 # Other very useful stuff
@@ -405,31 +425,34 @@ Lower case are local, upper case are global (across files). Jumping to a mark
 is a standard motion command for deleting, yanking, etc.
 
 :code:`ma` - sets mark on current cursor location (line and column), WLOG,
-called "a" :code:`'a` - jump to line of "a" (first non-blank character of line)
-:code:`` :code:`a :code:`` - jump to position of "a" (line and col)
-:code:`:marks` - lists all current marks :code:`:delmarks <args>` - delete
-specific marks  :code:`:delmarks!` - delete all lowercase in buffer
-:code:`]':code:`, :code:`['` - jump to next (previous) line with a lowercase
-mark  :code:`` ]` :code:``, :code:`` [` :code:`` - jump to next (previous)
-lowercase mark  
+called "a" 
+:code:`'a` - jump to line of "a" (first non-blank character of line)
+:code:`\`a` - jump to position of "a" (line and col)
+:code:`:marks` - lists all current marks 
+:code:`:delmarks <args>` - delete specific marks  
+:code:`:delmarks!` - delete all lowercase in buffer
+:code:`]'`, :code:`['` - jump to next (previous) line with a lowercase mark  
+:code:`\`]` :code:`\`[`
 
 ### Special Marks (Most useful when beginning) :code:`'` - The line you were on
 before making a "jump". So if you're on line 57 and jump to beginning of file
-using :code:`gg:code:`, hitting :code:`''` will take you right back to line 57.
+using :code:`gg:`, hitting :code:`''` will take you right back to line 57.
 :code:`.` - last edit in current buffer  :code:``` :code:`` :code:``` - jump
 back to position (line and col) where just jumped from  :code:`` :code:`[
 :code:``, :code:`` :code:`] :code:`` - jump to beg/end of last changed or
 yanked text  
 
-## Spellcheck
 
-Turn on with :code:`:set spell:code:`, turn off with :code:`:set
-nospell:code:`.
+Spellcheck
+~~~~~~~~~~
 
-:code:`z=` - Suggest correctly spelled words  :code:`]s:code:`, :code:`[s` -
-Move to next/previous mispelled word (use :code:`S` for "bad words only")
-:code:`zq` - Add word under cursor as good word to first name in 'spellfile'
-:code:`zw` - Mark as bad word  :code:`zu[q,w]` - Undo marking  
+Turn on with :code:`:set spell`, turn off with :code:`:set nospell`.
+
+* :code:`z=` - Suggest correctly spelled words  
+* :code:`]s`, :code:`[s` - Move to next/previous mispelled word (use :code:`S` for "bad words only")
+* :code:`zq` - Add word under cursor as good word to first name in 'spellfile'
+* :code:`zw` - Mark as bad word
+* :code:`zu[q,w]` - Undo marking  
 
 Visual "Mode"
 -------------
@@ -468,9 +491,3 @@ Some examples:
 * :code:`>>...`
     - Indent this line :code:`>>`,
     - then indent it another three times (:code:`...`).
-
-
-
-
-
-
