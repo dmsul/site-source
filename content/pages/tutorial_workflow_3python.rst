@@ -3,7 +3,9 @@
 
 .. sectnum::
 
-* `Writing Code in Econ Overview <tutorial_workflow_0overview.html>`__
+Writing Code in Econ:
+
+* `Overview <tutorial_workflow_0overview.html>`__
 * Previous: `Project Organization <tutorial_workflow_2project_org.html>`__
 
 .. contents::

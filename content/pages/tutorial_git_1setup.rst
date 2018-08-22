@@ -5,6 +5,8 @@
 
 .. sectnum::
 
+A Brief Intro to Git:
+
 * `Overview <tutorial_git_0overview.html>`__
 * Next: `First Steps: Making Commits <tutorial_git_2commits.html>`__
 

@@ -5,6 +5,8 @@
 
 .. sectnum::
 
+A Brief Intro to Git:
+
 * `Overview <tutorial_git_0overview.html>`__
 * Previous: `Branches and Merging <tutorial_git_3branches.html>`__
 
@@ -52,8 +54,6 @@ Pull
 
 Push
 ----
-
-------
 
 .. [#] The problem is that all information about the Git repository is stored
    in a hidden folder called :code:`.git/`. During certain operations, Git the
