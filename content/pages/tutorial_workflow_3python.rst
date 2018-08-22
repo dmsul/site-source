@@ -57,8 +57,6 @@ A few other naming conventions we tend to follow:
 * Indexes in loops should still be descriptive. However, the index inside a
   list comprehension can be something short like :code:`i` or :code:`x`,
   provided there is only one variable being looped over.
-* Data or a variable that is intended to be final output should have
-  :code:`out` somewhere in the name.
 * Degrees longitude and latitude will tend to be called :code:`x` and :code:`y`
   respectively. This is not a requirement but we have found that it's easy to
   mix up "latitude" and "longitude".
