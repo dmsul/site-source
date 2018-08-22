@@ -6,7 +6,7 @@
 
 * `Writing Code in Econ Overview <tutorial_workflow_0overview.html>`__
 * Previous: `Software Setup <tutorial_workflow_1setup.html>`__
-* Next: `Working with Python <tutorial_workflow_3python.html>`__
+* Next: `Best Practices when Writing Python <tutorial_workflow_3python.html>`__
 
 .. contents::
 
