@@ -10,7 +10,8 @@ Working Papers
 
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
-  September 2018 |moncoverage|_
+  September 2018 |moncoverage|_ |br|
+  Press: `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__
 - **"The True Cost of Air Pollution: Evidence from the Housing Market"** |br|
   March 2017 |pollhouse|_
 - **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
