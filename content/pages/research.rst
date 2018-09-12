@@ -8,16 +8,19 @@
 Working Papers
 --------------
 
-- **"Using Satellite Data to Fill the Gaps in the U.S. Air Pollution Monitoring
+- **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
-  August 2018 
+  September 2018 |moncoverage|_
 - **"The True Cost of Air Pollution: Evidence from the Housing Market"** |br|
   March 2017 |pollhouse|_
 - **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
-  March 2017 |pollsort|_ |
+  March 2017 |pollsort|_ |br|
   Press: `Fusion <http://fusion.net/story/319892/true-cost-of-environmental-gentrification-study>`_
 - **"Income Stagnation Among the Bankrupt"** with Frank McIntyre |br|
   May 2010 |bincome|_
+
+.. |moncoverage| image:: {filename}/images/pdf.png
+.. _moncoverage: {filename}/pdf/Sullivan_Krupnick_Filling_monitor_gaps_with_satellites.pdf
 
 .. |pollhouse| image:: {filename}/images/pdf.png
 .. _pollhouse: {filename}/pdf/Sullivan_Cost_of_Pollution_housing.pdf
