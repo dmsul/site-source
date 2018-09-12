@@ -24,6 +24,16 @@ package that comes with Vim. It covers more commands and situation and also
 includes some minimal folding. It can be installed using Pathogen, VimPlug,
 etc.
 
+biblatex-aer
+------------
+
+:code:`biblatex-aer` (`code and documentation
+<https://github.com/dmsul/biblatex-aer>`__) is a port of AER's
+bibliography style to Biber and BibLaTeX. BibLaTeX offers a much larger
+set of options than the older BibTex package. However, it requires its own
+style files and cannot use BibTex's :code:`bst` style files.
+
+
 Tutorials
 ---------
 
