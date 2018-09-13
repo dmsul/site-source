@@ -12,11 +12,11 @@ Working Papers
   Network"** with Alan Krupnick |br|
   September 2018 |moncoverage|_ |br|
   Press: `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__
+- **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
+  July 2017 |pollsort|_ |br|
+  Press: `Fusion <http://fusion.net/story/319892/true-cost-of-environmental-gentrification-study>`_
 - **"The True Cost of Air Pollution: Evidence from the Housing Market"** |br|
   March 2017 |pollhouse|_
-- **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
-  March 2017 |pollsort|_ |br|
-  Press: `Fusion <http://fusion.net/story/319892/true-cost-of-environmental-gentrification-study>`_
 - **"Income Stagnation Among the Bankrupt"** with Frank McIntyre |br|
   May 2010 |bincome|_
 
