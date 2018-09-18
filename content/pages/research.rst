@@ -11,7 +11,9 @@ Working Papers
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
   September 2018 |moncoverage|_ |br|
-  Press: `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__ |br|
+  Press:
+  `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__, 
+  `NPR Louisville <http://wfpl.org/as-it-turns-out-louisvilles-particle-air-pollution-was-as-bad-as-the-epa-thought/>`__ |br|
   `Graphics from the study <satellite_pollution_assets.html>`__
 - **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
   July 2017 |pollsort|_ |br|
@@ -36,9 +38,11 @@ Working Papers
 Research in Progress
 --------------------
 
+- **"Do emission permits flow to poor neighborhoods?"**
+- **"How does unconventional oil and gas development affect local air
+  quality?”** with Elaine Hill and Alan Krupnick
 - **"Does unconventional oil and gas development affect infant health through air
   pollution?”** with Elaine Hill and Alan Krupnick
-- **"Do emission permits flow to poor neighborhoods?"**
 - **"Industrial Air Pollution and Infant Health"**
 
 
