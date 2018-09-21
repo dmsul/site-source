@@ -13,8 +13,10 @@ Working Papers
   September 2018 |moncoverage|_ |br|
   Press:
   `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__, 
-  `NPR Louisville <http://wfpl.org/as-it-turns-out-louisvilles-particle-air-pollution-was-as-bad-as-the-epa-thought/>`__ |br|
-  `Graphics from the study <satellite_pollution_assets.html>`__
+  `NPR Louisville <http://wfpl.org/as-it-turns-out-louisvilles-particle-air-pollution-was-as-bad-as-the-epa-thought/>`__,
+  `EDF Blog
+  <https://www.edf.org/blog/2018/09/20/new-challenge-sensors-24-million-more-americans-breathing-unhealthy-air-previously>`__
+  |br| `Graphics from the study <satellite_pollution_assets.html>`__
 - **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
   July 2017 |pollsort|_ |br|
   Press: `Fusion <http://fusion.net/story/319892/true-cost-of-environmental-gentrification-study>`_
