@@ -18,10 +18,10 @@ Writing Code in Econ:
 
     ~ Robert C. Martin, Clean Code: A Handbook of Agile Software Craftsmanship
 
-Writing code clearly is important, especialy when you're working with a team.
+Writing easy-to-read code is important, especialy when you're working with a team.
 Code that's easy to read improves everyone's productivity, even when the
-"other" person reading the code is you two months from now after you've
-forgotten everything you wrote.
+"other" person reading the code is Future You in two months, because Future You
+may rememeber very little everything the code you're writing today.
 
 
 No copying and pasting
@@ -30,9 +30,9 @@ No copying and pasting
 Variables and algorithms should be defined in exactly one place. This is a
 cardinal rule. If you copy and paste code to use it in multiple places, it is
 difficult to make sure any changes you make later also get copied and pasted.
-If a file name is defined in only one place and imported everywhere it's used,
-you can change the file name in a single place and you know for certain and all
-of your code will use the new file name. 
+If a file name is defined in only one place and imported elsewhere,
+you can change the file name in that single place know for certain the change
+will propagate through the rest of your code.
 
 
 Write self-documenting code
@@ -65,16 +65,16 @@ A few other naming conventions we tend to follow:
 Use functions like paragraphs
 -----------------------------
 
-The main unit of code should be functions. Even if you think you're only going
+The main unit of code should be functions. Even if you're only going
 to use a function once, breaking the code into functions makes it easier to
-read the code.
+read.
 
 
 Scripts should only contain functions and an "if-main" block
 ------------------------------------------------------------
 
-When you import something from another Python file, the entire file is executed
-first. Suppose you want to import a function called
+When you import something from another Python file, the entire file is
+executed. Suppose you want to import a function called
 :code:`computation_that_takes_forever` which is used in script
 :code:`cleandata.py` that looks like this
 
@@ -135,11 +135,11 @@ the IPython terminal. You can then use the :code:`%run` command inside IPython
 to run your code.
 
 
-Incrementally build your code in a script
+Build your code incrementally in a script
 -----------------------------------------
 
 It's pretty common for data work in social science to look like this: You open
-STATA, R, Python, etc. and start poking around on the command line, interacting
+STATA, R, Python, etc., and start poking around on the command line, interacting
 with the data until you get where you want. Then you use the command history
 (or your memory) to reconstruct what you did and put it in a script.
 
@@ -148,8 +148,8 @@ difficult. At best, you're doing everything twice. Jupyter notebooks were
 designed in part to address this problem. However, as mentioned above, our
 work doesn't always play nice with Jupyter notebooks.
 
-You can avoid duplicating your work and introducing bugs by incrementally
-writing your script. Start with a script that's empty except for the if-main
+You can avoid these problems by writing your script incrementally.
+Start with a script that's empty except for the if-main
 block. Write the beginnings of your first function in the if-main block:
 
 .. code-block:: python3
@@ -186,17 +186,16 @@ Now you can start work on your next task in the if-main block in the same way.
 This is also a good time to commit your changes in Git if you haven't already
 done so.
 
-When you're done, there should be a very simple if-main block or no if-main
-block at all.
+When you're done, there should be a very simple (maybe empty) if-main block.
 
 
 Use a consistent style
 ----------------------
 
-Just like for writing prose, there are style guides for writing code. Python as
+Just like for writing prose, there are style guides for writing code. Python has
 an official style guide called PEP8 that contains more rules than I'll go over
-here. However, there is a create Python tool called Flake8 that will
-automatically check your code for PEP8 errors and syntax errors. It can be
+here. However, there is a great Python tool called Flake8 that will
+automatically check your code for PEP8 and syntax errors. It can be
 integrated into the Atom editor using the :code:`linter-flake8` plugin.
 
 A few examples of important PEP8 rules that we'll follow:
@@ -204,17 +203,16 @@ A few examples of important PEP8 rules that we'll follow:
 Lines should be less than 80 characters wide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Lines of code should be less than 80 characters wide. Fortunately in Python
-  line wrapping is very easy. Anything within parentheses can be broken across
-  lines, including function calls:
+Fortunately in Python line wrapping is very easy. Anything within parentheses
+can be broken across lines, including function calls:
 
 .. code-block:: python3
 
-    std_dev = find_std_dev(dataset1,
-                           dataset2,
-                           dataset3)
+    std_devs = find_std_dev(variable1,
+                            variable2,
+                            variable3)
 
-Even if a line of code won't break 80 characters, it's often easier to break it
+Even if a line of code isn't 80 characters long, it's often better to break it
 into several lines for clarity.
 
 .. code-block:: python3
@@ -236,7 +234,7 @@ into several lines for clarity.
                             .drop('dumb_var', axis=1)
                             .set_index('state_id'))
 
-Long strings can be wrapped in parenthesis as well and will automatically be
+Long strings can be wrapped in parentheses as well and will automatically be
 concatenated. Just don't forget to add spaces where necessary.
 
 .. code-block:: python3
@@ -274,7 +272,7 @@ code to crash.
   for this, so that when you hit the tab key the editor inserts 4 spaces
   instead of a tab code (:code:`\t`).
 * When you break a line using parentheses, the next line should line up with
-  the open parenthesis on the line above. If the open parenthesis is the alone
+  the open parenthesis on the line above. If the open parenthesis is alone
   on that line, indent once.
 
 .. code-block:: python3
@@ -322,10 +320,39 @@ Imports
     from util.env import data_path          # Imports from *this* project
 
 
+Don't use the same variable name for different things
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Python (and Stata and R) are dynamically-typed languages, which means that they
+just figure out what kind of data a variable is, like a string, an integer or a
+decimal float. As a result, it's common to see people re-use variable names for
+different things. For example:
+
+.. code-block:: python3
+
+    # Bad
+    to_clean = 'c:/data/raw_data.csv'
+    to_clean = pd.read_csv(to_clean)
+
+This short example isn't too bad, but on larger scales it can be very confusing
+when a variable you thought was a DataFrame ends up being a string or vice
+versa. This type changing is also computationally slower. (It also screws up
+the `mypy` linter/type-checker.) A better solution is to be more explicit in
+naming your variables:
+
+.. code-block:: python3
+
+    # Good
+    raw_data_path = 'c:/data/raw_data.csv'
+    raw_data = pd.read_csv(raw_data_path)
+
+
 Other stuff
 ~~~~~~~~~~~
 
 * Spaces around assignments: :code:`x = 7` not :code:`x=7`.
+* No spaces around keyword variables: :code:`function(arg1=y, arg2=3)`.
+* Spaces after commas (just like in prose).
 * Name functions and variables with lowercase letters and underscores.
 * Functions meant to be local (subroutines not meant to be imported by other
   scripts) should start with an underscore, e.g., :code:`_drop_missings()`.
