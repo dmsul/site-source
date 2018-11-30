@@ -8,9 +8,11 @@
 Working Papers
 --------------
 
+- **"Does pollution in cap-and-trade markets flow to poor neighborhoods?"** |br|
+  November 2018
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
-  September 2018 |moncoverage|_ |br|
+  October 2018 |moncoverage|_ |br|
   Press:
   `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__, 
   `NPR Louisville <http://wfpl.org/as-it-turns-out-louisvilles-particle-air-pollution-was-as-bad-as-the-epa-thought/>`__,
@@ -40,9 +42,8 @@ Working Papers
 Research in Progress
 --------------------
 
-- **"Do emission permits flow to poor neighborhoods?"**
-- **"How does unconventional oil and gas development affect local air
-  quality?”** with Elaine Hill and Alan Krupnick
+- **"Does unconventional oil and gas development affect local air
+  quality?”** with Alan Krupnick
 - **"Does unconventional oil and gas development affect infant health through air
   pollution?”** with Elaine Hill and Alan Krupnick
 - **"Industrial Air Pollution and Infant Health"**
