@@ -12,7 +12,7 @@ Working Papers
   November 2018
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
-  October 2018 |moncoverage|_ |br|
+  October 2018 (updated December 2018) |moncoverage|_ |br|
   Press:
   `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__, 
   `NPR Louisville <http://wfpl.org/as-it-turns-out-louisvilles-particle-air-pollution-was-as-bad-as-the-epa-thought/>`__,
