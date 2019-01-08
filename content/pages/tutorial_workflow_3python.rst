@@ -21,7 +21,7 @@ Writing Code in Econ:
 Writing easy-to-read code is important, especialy when you're working with a team.
 Code that's easy to read improves everyone's productivity, even when the
 "other" person reading the code is Future You in two months, because Future You
-may rememeber very little everything the code you're writing today.
+may rememeber very little of the code Present You is writing today.
 
 
 No copying and pasting
