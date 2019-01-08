@@ -3,6 +3,8 @@
 
 .. sectnum::
 
+.. contents::
+    :depth: 1
 
 Input/Output
 ------------
@@ -70,7 +72,8 @@ Data Info and Summary Statistics
    * - Stata
      - Python
    * - :code:`describe`
-     - :code:`df.dtypes` Note that Python does not have value labels like Stata does.
+     - :code:`df.info()` OR :code:`df.dtypes` just to get data types. Note that
+       Python does not have value labels like Stata does.
    * - :code:`describe <var>`
      - :code:`df[<var>].dtype`
    * - :code:`count`
@@ -113,15 +116,15 @@ Variable Manipulation
    * - :code:`<var>*`
      - Depends on context
    * - :code:`egen <newvar> = count(<var>)`
-     - :code:`df.shape` OR :code:`len(df)`
+     - :code:`<newvar> = df[<var>].notnull().sum()`
    * - :code:`egen <newvar> = group(<varlist>)`
      - :code:`<newvar> = econtools.group_id(df, cols=<varlist>)`
    * - :code:`egen <newvar> = max(<var>)`
-     - :code:`df[<var>].max()`
+     - :code:`<newvar> = df[<var>].max()`
    * - :code:`egen <newvar> = mean(<var>)`
-     - :code:`df[<var>].mean()`
+     - :code:`<newvar> = df[<var>].mean()`
    * - :code:`egen <newvar> = total(<var>)`
-     - :code:`df[<var>].sum()`
+     - :code:`<newvar> = df[<var>].sum()`
    * - :code:`inlist(<var>, <val1>, <val2>)`
      - :code:`<var_name> = df[<var>].isin((<val1>, <val2>))`
    * - :code:`inrange(<var>, <val1>, <val2>)`
@@ -155,6 +158,11 @@ Variable Manipulation
 Panel Data
 ----------
 
+There is no general equivalent to :code:`tsset` in Python. The equivalent
+functionality is provided by a DataFrame's index, the row's equivalent of
+columns. A DataFrame index can have arbitrary contents and can be hierarchical
+with mutiple levels. It is a much more general tool than :code:`tsset`.
+
 .. list-table::
    :widths: 50 50
    :header-rows: 1
@@ -162,29 +170,72 @@ Panel Data
    * - Stata
      - Python
    * - :code:`tsset <panelvar> <timevar>`
-     - :code:`df = df.set_index([<panelvar>, <timevar>])` (But
-       :code:`.set_index` is more general than :code:`tsset`)
+     - :code:`df = df.set_index([<panelvar>, <timevar>])`
    * - :code:`L.<var>`
-     - :code:`df.shift(periods=-1)`
+     - :code:`df.shift()`
+   * - :code:`L2.<var>`
+     - :code:`df.shift(2)`
    * - :code:`F.<var>`
-     - :code:`df.shift(periods=1)`
-   * - :code:`L(-1/1).<var>`
-     - :code:`df.shift(periods=1)`
+     - :code:`df.shift(-1)`
 
+Examples
+~~~~~~~~~~~~
 
-Reshape
--------
+.. code-block:: ipython
+    :linenos: table
 
-.. list-table::
-   :widths: 50 50
-   :header-rows: 1
+    In [1]: import numpy as np
 
-   * - Stata
-     - Python
-   * - :code:`reshape <wide/long> <stubs>, i(<vars>) j(<var>)`
-     - | wide: :code:`df.unstack(<level>)`
-       | long: :code:`df.stack(<column_level>)`
-       | see also :code:`df.pivot`
+    In [2]: import pandas as pd
+
+    In [3]: df0 = pd.DataFrame({'var1': np.arange(6),
+       ...:                     'id': [1, 1, 2, 2, 3, 3],
+       ...:                     'period': [0, 1] * 3})
+
+    In [4]: print(df0)
+       var1  id  period
+    0     0   1       0
+    1     1   1       1
+    2     2   2       0
+    3     3   2       1
+    4     4   3       0
+    5     5   3       1
+
+    In [5]: df = df0.set_index(['id', 'period'])
+
+    In [6]: print(df)
+               var1
+    id period
+    1  0          0
+       1          1
+    2  0          2
+       1          3
+    3  0          4
+       1          5
+
+    In [7]: df['var1_lag'] = df.groupby(level='id')['var1'].shift()
+
+    In [8]: print(df)
+               var1  var1_lag
+    id period
+    1  0          0       NaN
+       1          1       0.0
+    2  0          2       NaN
+       1          3       2.0
+    3  0          4       NaN
+       1          5       4.0
+
+    In [9]: df['var1_for'] = df.groupby(level='id')['var1'].shift(-1)
+
+    In [10]: print(df)
+               var1  var1_lag  var1_for
+    id period
+    1  0          0       NaN       1.0
+       1          1       0.0       NaN
+    2  0          2       NaN       3.0
+       1          3       2.0       NaN
+    3  0          4       NaN       5.0
+       1          5       4.0       NaN
 
 
 Merging and Joining
@@ -201,6 +252,23 @@ Merging and Joining
        etc. Needs more robust explanation.
    * - :code:`append using <filename>`
      - :code:`df_joint = df1.append(df2)`
+
+
+
+Reshape
+-------
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Stata
+     - Python
+   * - :code:`reshape <wide/long> <stubs>, i(<vars>) j(<var>)`
+     - | wide: :code:`df.unstack(<level>)`
+       | long: :code:`df.stack(<column_level>)`
+       | see also :code:`df.pivot`
+
 
 
 Econometrics
@@ -224,15 +292,18 @@ Econometrics
        | :code:`results = mt.reg(df[<condition>], <yvar>, <xvar>, robust=True)`
    * - :code:`reg <yvar> <xvar> if <condition>,  vce(cluster <clustervar>)`
      - :code:`results = mt.reg(df[<condition>], <yvar>, <xvar>, cluster=<clustervar>)`
-   * - :code:`predict <newvar>`
-     - | :code:`<var1> = results.resid`
-       | :code:`<var2> = results.yhat`
+   * - :code:`predict <newvar>, resid`
+     - :code:`<newvar> = results.resid`
+   * - :code:`predict <newvar>, xb`
+     - :code:`<newvar> = results.yhat`
    * - :code:`_b[<var>]`, :code:`_se[<var>]`
-     - :code:`results.beta[<var>]; results.se[<var>]`
-   * - :code:`test <var> = 0`
-     - :code:`results.Ftest(<var>)`
+     - :code:`results.beta[<var>]`, :code:`results.se[<var>]`
+   * - :code:`test <varlist>`
+     - :code:`results.Ftest(<varlist>)`
+   * - :code:`test <varlist>, equal`
+     - :code:`results.Ftest(<varlist>, equal=True)`
    * - :code:`lincom <var1> + <var2>`
-     - None.
+     - :code:`econtools.metrics.f_test` with appropriate parameters.
    * - :code:`ivreg2`
      - :code:`econtools.metrics.ivreg`
    * - :code:`outreg2`
