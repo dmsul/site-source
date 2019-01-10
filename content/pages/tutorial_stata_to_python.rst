@@ -1,10 +1,11 @@
-:Title: Translating Stata to Python
+:Title: Stata to Python Equivalents
 :slug: tutorial_stata_to_python
 
 .. sectnum::
 
 .. contents::
     :depth: 1
+
 
 Input/Output
 ------------
@@ -31,12 +32,12 @@ Input/Output
    * - :code:`import delimited using <csvfile>`
      - :code:`df = pd.read_csv('<csvfile>')`
    * - :code:`save <filename> [, replace]`
-     - | :code:`df.to_stata(<filename>)` OR
-       | :code:`df.to_pickle(<filename>)` for Python-native file type.
+     - | :code:`df.to_stata('<filename>')` OR
+       | :code:`df.to_pickle('<filename>')` for Python-native file type.
    * - :code:`outsheet using <csv_name>, comma`
-     - :code:`df.to_csv(<csv_name>)`
+     - :code:`df.to_csv('<csv_name>')`
    * - :code:`export excel using <excel_name>`
-     - :code:`df.to_excel(<excel_name>)`
+     - :code:`df.to_excel('<excel_name>')`
 
 
 Sample Selection
@@ -57,7 +58,7 @@ Sample Selection
    * - :code:`keep varstem*`
      - :code:`df = df.filter(like='varstem*')`
    * - :code:`drop <var>`
-     - :code:`del df['var']` OR :code:`df = df.drop('var', axis=1)`
+     - :code:`del df[<var>]` OR :code:`df = df.drop(<var>, axis=1)`
    * - :code:`drop varstem*`
      - :code:`df = df.drop(df.filter(like='varstem*').columns, axis=1)`
 
@@ -131,8 +132,11 @@ Variable Manipulation
      - :code:`<var_name> = df[<var>].between((<val1>, <val2>))`
    * - :code:`subinstr(<str>, "  ", "_", .)`
      - :code:`df[<var>] = df[<var>].str.replace(' ', '_')`
-   * - :code:`egen <newvar> = <total/mean/max>(<var>), by(<groupvars>)`
-     - :code:`df.groupby(<groupvars>)[<var>].<stat>()`
+   * - :code:`egen <newvar> = <stat>(<var>), by(<groupvars>)`
+     - | :code:`df.groupby(<groupvars>)[<var>].<stat>()` OR
+       | :code:`df.groupby(<groupvars>)[<var>].transform('<stat>')`
+       | The first option will have no duplicates within `<groupvars>`. The
+       | second will be same size as :code:`df`.
    * - | :code:`collapse (sd) <var> (median) <var> ///`
        |    :code:`(max) <var> (min) <var>, ///`
        |    :code:`by(<groupvars>)`
@@ -154,14 +158,28 @@ Variable Manipulation
    * - :code:`label list <labelname>`
      - N/A. 
 
+Python doesn't have "labels" built into DataFrames like Stata does. However,
+you can use a dictionary to map data values to labels when necessary.
+
+.. code-block:: python3
+
+    variable_labels = {
+        1: "First Category",
+        2: "Second Category",
+        3: "Last Category",
+    }
+
+
 
 Panel Data
 ----------
 
-There is no general equivalent to :code:`tsset` in Python. The equivalent
-functionality is provided by a DataFrame's index, the row's equivalent of
-columns. A DataFrame index can have arbitrary contents and can be hierarchical
-with mutiple levels. It is a much more general tool than :code:`tsset`.
+There is no general equivalent to :code:`tsset` in Python. However, you can
+accomplish most if not all of the same tasks using a DataFrame's index (the
+row's equivalent of columns.) In Stata, the "DataFrame" in memory is always the
+observation row number, denoted by the special variable :code:`_n`. In Python
+and Pandas, a DataFrame index can be anything. It can also be hierarchical with
+mutiple levels. It is a much more general tool than :code:`tsset`.
 
 .. list-table::
    :widths: 50 50
@@ -172,7 +190,8 @@ with mutiple levels. It is a much more general tool than :code:`tsset`.
    * - :code:`tsset <panelvar> <timevar>`
      - :code:`df = df.set_index([<panelvar>, <timevar>])`
    * - :code:`L.<var>`
-     - :code:`df.shift()`
+     - :code:`df.shift()` NOTE: The index must be correctly sorted for
+       :code:`shift` to work the way you want it to.
    * - :code:`L2.<var>`
      - :code:`df.shift(2)`
    * - :code:`F.<var>`
@@ -247,12 +266,40 @@ Merging and Joining
 
    * - Stata
      - Python
-   * - :code:`merge 1:1 <vars> using <filename>`
-     - :code:`df_joint = df1.join(df2)` NOTE: Merging in Python is like R, SQL,
-       etc. Needs more robust explanation.
    * - :code:`append using <filename>`
      - :code:`df_joint = df1.append(df2)`
+   * - :code:`merge 1:1 <vars> using <filename>`
+     - | :code:`df_joint = df1.join(df2)` OR 
+       | :code:`df_joint = pd.merge(df1, df2)`
+       | NOTE: Merging in Python is like R, SQL, etc. Needs more robust
+       | explanation.
 
+Merging with Pandas DataFrames does not require you to specify "many-to-one" or
+"one-to-many". Pandas will figure that out based on whether the variables
+you're merging on are unique or not. However, you can specify what sub-sample
+of the merge to keep using the keyword argument :code:`how`, e.g.,
+:code:`df_joint = df1.join(df2, how='left')` is the default.
+
+
+.. list-table::
+   :widths: 30 30 50
+   :header-rows: 1
+
+   * - Pandas :code:`how`
+     - Stata :code:`, keep()`
+     - Intuition
+   * - :code:`how='left'`
+     - :code:`keep(1, 3)`
+     - Keeps all observations in the "left" DataFrame.
+   * - :code:`how='right'`
+     - :code:`keep(2, 3)`
+     - Keeps all observations in the "right" DataFrame.
+   * - :code:`how='inner'`
+     - :code:`keep(3)`
+     - Keeps observations that are in both DataFrames.
+   * - :code:`how='outer'`
+     - :code:`keep(1 2 3)`
+     - Keeps all observations.
 
 
 Reshape
@@ -269,7 +316,7 @@ Reshape
        | long: :code:`df.stack(<column_level>)`
        | see also :code:`df.pivot`
 
-
+TODO MORE HERE.
 
 Econometrics
 ------------
@@ -285,7 +332,7 @@ Econometrics
        | :code:`ttest_ind(<array1>, <array2>)`
    * - :code:`xi: i.<var>`
      - :code:`pd.get_dummies(df[<var>])`
-   * - :code:`i.<var>#c.<var>`
+   * - :code:`i.<var2>#c.<var1>`
      - :code:`df[<var1>] * pd.get_dummies(df[<var2>])`
    * - :code:`reg <yvar> <xvar> if <condition>, r`
      - | :code:`import econtools.metrics as mt`
