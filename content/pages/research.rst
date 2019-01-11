@@ -42,8 +42,8 @@ Working Papers
 Research in Progress
 --------------------
 
-- **"Does unconventional oil and gas development affect local air
-  quality?”** with Alan Krupnick
+- **"Air Pollution Impacts of Shale Gas Development in Pennsylvania"** with
+  Ruohauo Zhang, Huan Li, Neha Khanna, Alan Krupnick, and Elaine Hill
 - **"Does unconventional oil and gas development affect infant health through air
   pollution?”** with Elaine Hill and Alan Krupnick
 - **"Industrial Air Pollution and Infant Health"**
