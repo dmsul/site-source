@@ -305,6 +305,125 @@ of the merge to keep using the keyword argument :code:`how`, e.g.,
 Reshape
 -------
 
+Like with merging, reshaping a DataFrame in Python is a bit different because
+of the paradigm shift from the "only data table in memory" model of Stata to "a
+data table is just another object/variable" of Python. But this difference also
+makes reshaping a little easier in Python.
+
+The most fundamental reshape commands in Python/Pandas are :code:`stack` and
+:code:`unstack`:
+
+
+.. code-block:: ipython
+
+    In [1]: import pandas as pd
+
+    In [2]: import numpy as np
+
+    In [3]: long = pd.DataFrame(np.arange(8),
+       ...:                     columns=['some_variable'],
+       ...:                     index=pd.MultiIndex.from_tuples(
+       ...:                         [('a', 1), ('a', 2),
+       ...:                          ('b', 1), ('b', 2),
+       ...:                          ('c', 1), ('c', 2),
+       ...:                          ('d', 1), ('d', 2)]))
+
+    In [4]: long.index.names=['unit_id', 'time']
+
+    In [5]: long.columns.name = 'varname'
+
+    In [6]: long
+    Out[6]:
+    varname       some_variable
+    unit_id time
+    a       1                 0
+            2                 1
+    b       1                 2
+            2                 3
+    c       1                 4
+            2                 5
+    d       1                 6
+            2                 7
+
+    In [7]: wide = long.unstack('time')
+
+    In [8]: wide
+    Out[8]:
+    varname some_variable
+    time                1  2
+    unit_id
+    a                   0  1
+    b                   2  3
+    c                   4  5
+    d                   6  7
+
+    In [9]: long2 = wide.stack('time')
+
+    In [10]: long2
+    Out[10]:
+    varname       some_variable
+    unit_id time
+    a       1                 0
+            2                 1
+    b       1                 2
+            2                 3
+    c       1                 4
+            2                 5
+    d       1                 6
+            2                 7
+
+Here Input 3 creates a DataFrame, Input 4 gives each of the index columns a
+name, and Input 5 names the columns. Coming from Stata, it's a little weird to
+think of the column names themselves having a "name", but the columns names are
+just an index like the row names are. It starts to make more sense when you
+realize columns don't have to be strings. They can be integers, like years or
+FIPS codes. In those cases, it makes a lot of sense to give the columns a name
+so you know what you're dealing with.
+
+Input 6 does the reshaping using :code:`unstack('time')`, which takes the index
+:code:`'time'` and creates a new column for every unique value it has. Notice
+that the columns now have multiple levels, just like the index previously did.
+This is another good reason to label your index and columns. If you want to
+access either of those columns, you can do so as usual, using a tuple to
+differentiate between the two levels:
+
+.. code-block:: ipython
+
+    In [11]: wide[('some_variable', 1)]
+    Out[11]:
+    unit_id
+    a    0
+    b    2
+    c    4
+    d    6
+    Name: (some_variable, 1), dtype: int32
+
+
+If you want to combine the two levels (like Stata defaults to), you can simply
+rename the columns:
+
+.. code-block:: ipython
+
+    In [13]: wide_single_level_column = wide.copy()
+
+    In [14]: wide_single_level_column.columns = [
+        ...:        '{}_{}'.format(var, time)
+        ...:        for var, time in wide_single_level_column.columns]
+
+    In [15]: wide_single_level_column
+    Out[15]:
+                      some_variable_1  some_variable_2
+             unit_id
+             a                      0                1
+             b                      2                3
+             c                      4                5
+             d                      6                7
+
+
+The :code:`pivot` command can also be useful, but it's a bit more complicated than :code:`stack` and
+:code:`unstack` and is better to revisit :code:`pivot` after you are
+comfortable working with DataFrame indexes and columns.
+
 .. list-table::
    :widths: 50 50
    :header-rows: 1
@@ -315,8 +434,6 @@ Reshape
      - | wide: :code:`df.unstack(<level>)`
        | long: :code:`df.stack(<column_level>)`
        | see also :code:`df.pivot`
-
-TODO MORE HERE.
 
 Econometrics
 ------------
