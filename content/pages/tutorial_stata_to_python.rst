@@ -7,8 +7,26 @@
     :depth: 1
 
 
+Note on Notation
+----------------
+
+What the :code:`<varname>` and whatnot means.
+
+
 Input/Output
 ------------
+
+.. raw:: html
+
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+   <script>
+     $(document).ready(function() {
+       $('.gbg').parent().addClass('gbg-parent');
+     });
+   </script>
+   <style>
+      .gbg-parent {background-color:#00ff00;}
+   </style>
 
 .. list-table::
    :widths: 50 50
@@ -31,7 +49,7 @@ Input/Output
      - :code:`df = pd.read_excel('<excelfile>')`
    * - :code:`import delimited using <csvfile>`
      - :code:`df = pd.read_csv('<csvfile>')`
-   * - :code:`save <filename> [, replace]`
+   * - :code:`save <filename>, replace`
      - | :code:`df.to_stata('<filename>')` OR
        | :code:`df.to_pickle('<filename>')` for Python-native file type.
    * - :code:`outsheet using <csv_name>, comma`
@@ -86,7 +104,7 @@ Data Info and Summary Statistics
    * - :code:`summ <var>`
      - :code:`df['<var>'].describe()`
    * - :code:`summ <var> if <condition>`
-     - :code:`df[<condition>][<var>].describe()` OR :code:`df.loc[<condition>, <var>]. describe()`
+     - :code:`df[<condition>][<var>].describe()` OR :code:`df.loc[<condition>, <var>].describe()`
    * - :code:`summ <var> [aw = <weight>]`
      - Right now you have to calculate weighted summary stats manually. There
        are also some tools available in the Statsmodels package.
@@ -107,15 +125,13 @@ Variable Manipulation
    * - :code:`gen <newvar> = <expression>`
      - :code:`df[<newvar>] = <expression>`
    * - :code:`gen <newvar> = <expression> if <condition>`
-     - :code:`df.loc[<condition>, 'var'] = <expression>`.  As with Stata, the
-       rows of :code:`df` that don't meet the condition will be missing
+     - :code:`df.loc[<condition>, <newvar>] = <expression>`.  As with Stata,
+       the rows of :code:`df` that don't meet the condition will be missing
        (:code:`numpy.nan`).
    * - :code:`replace <var> = <expression> if <condition>`
      - :code:`df.loc[<condition>, <var>] = <expression>`
    * - :code:`rename <var> <newvar>`
      - :code:`df = df.rename(columns={<var>: <newvar>})`
-   * - :code:`<var>*`
-     - Depends on context
    * - :code:`egen <newvar> = count(<var>)`
      - :code:`<newvar> = df[<var>].notnull().sum()`
    * - :code:`egen <newvar> = group(<varlist>)`
@@ -127,16 +143,13 @@ Variable Manipulation
    * - :code:`egen <newvar> = total(<var>)`
      - :code:`<newvar> = df[<var>].sum()`
    * - :code:`inlist(<var>, <val1>, <val2>)`
-     - :code:`<var_name> = df[<var>].isin((<val1>, <val2>))`
+     - :code:`df[<var>].isin((<val1>, <val2>))`
    * - :code:`inrange(<var>, <val1>, <val2>)`
-     - :code:`<var_name> = df[<var>].between((<val1>, <val2>))`
+     - :code:`df[<var>].between((<val1>, <val2>))`
    * - :code:`subinstr(<str>, "  ", "_", .)`
-     - :code:`df[<var>] = df[<var>].str.replace(' ', '_')`
+     - :code:`df[<var>].str.replace(' ', '_')`
    * - :code:`egen <newvar> = <stat>(<var>), by(<groupvars>)`
-     - | :code:`df.groupby(<groupvars>)[<var>].<stat>()` OR
-       | :code:`df.groupby(<groupvars>)[<var>].transform('<stat>')`
-       | The first option will have no duplicates within `<groupvars>`. The
-       | second will be same size as :code:`df`.
+     - :code:`df[<newvar>]  = df.groupby(<groupvars>)[<var>].transform('<stat>')`.
    * - | :code:`collapse (sd) <var> (median) <var> ///`
        |    :code:`(max) <var> (min) <var>, ///`
        |    :code:`by(<groupvars>)`
@@ -176,10 +189,12 @@ Panel Data
 
 There is no general equivalent to :code:`tsset` in Python. However, you can
 accomplish most if not all of the same tasks using a DataFrame's index (the
-row's equivalent of columns.) In Stata, the "DataFrame" in memory is always the
-observation row number, denoted by the special variable :code:`_n`. In Python
-and Pandas, a DataFrame index can be anything. It can also be hierarchical with
-mutiple levels. It is a much more general tool than :code:`tsset`.
+row's equivalent of columns.) In Stata, the "DataFrame" in memory always has
+the observation row number, denoted by the Stata built-in variable :code:`_n`.
+In Python and Pandas, a DataFrame index can be anything (though you can also
+refer to rows by the row number; see :code:`.loc` vs :code:`iloc`). It can also
+be hierarchical with mutiple levels. It is a much more general tool than
+:code:`tsset`.
 
 .. list-table::
    :widths: 50 50
@@ -269,8 +284,9 @@ Merging and Joining
    * - :code:`append using <filename>`
      - :code:`df_joint = df1.append(df2)`
    * - :code:`merge 1:1 <vars> using <filename>`
-     - | :code:`df_joint = df1.join(df2)` OR 
-       | :code:`df_joint = pd.merge(df1, df2)`
+     - | :code:`df_joint = df1.join(df2)` if :code:`<vars>` are the DataFrames' indexes, or
+       | :code:`df_joint = pd.merge(df1, df2, on=<vars>)` otherwise. Beware
+       | that :code:`pd.merge` will not keep the index of either DataFrame.
        | NOTE: Merging in Python is like R, SQL, etc. Needs more robust
        | explanation.
 
@@ -278,7 +294,8 @@ Merging with Pandas DataFrames does not require you to specify "many-to-one" or
 "one-to-many". Pandas will figure that out based on whether the variables
 you're merging on are unique or not. However, you can specify what sub-sample
 of the merge to keep using the keyword argument :code:`how`, e.g.,
-:code:`df_joint = df1.join(df2, how='left')` is the default.
+:code:`df_joint = df1.join(df2, how='left')` is the default for :code:`join`
+while :code:`how='inner'` is the default for :code:`pd.merge`.
 
 
 .. list-table::
@@ -498,3 +515,31 @@ Plotting
    * - :code:`twoway <connected/line/area/bar/rarea>`
      - As above, though :code:`ax.plot(<var1>, <var2>)` is better. Like merge,
        it's a different paradigm, needs more explanation.
+
+Other differences
+-----------------
+
+Missing values
+~~~~~~~~~~~~~~
+
+:code:`numpy.nan`, usually :code:`np.nan` for short. In Stata, missing
+(:code:`.`) was larger than every number, so :code:`10 < .` yielded True. In
+Python, :code:`np.nan` is never equal to anything, so even :code:`np.nan ==
+np.nan` is False. To look for missing values in DataFrame columns, use any of
+the following.
+
+* `isnull()`
+* `notnull()`
+
+Can also use `np.isnan()` for arrays.
+
+Also, :code:`np.nan` is a floating point data type, so any column of a
+DataFrame that contains missing numbers will be floats, even if the rest of the
+data are integers.
+
+
+Floating point equality
+~~~~~~~~~~~~~~~~~~~~~~~
+
+In Stata, decimal numbers are never equal to anything, e.g. :code:`3.0 == 3` is
+False. Python does not quibble over this.
