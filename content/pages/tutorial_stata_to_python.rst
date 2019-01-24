@@ -157,9 +157,19 @@ Variable Manipulation
    * - :code:`replace <var> = <expression> if <condition>`
      - :code:`df.loc[<condition>, <var>] = <expression>`
    * - :code:`rename <var> <newvar>`
-     - :code:`df = df.rename(columns={<var>: <newvar>})`
+     - :code:`df = df.rename(columns={<var>: <newvar>})`. You can also directly
+       manipulate :code:`df.columns` like a list: :code:`df.columns = ['a',
+       'b', 'c']`.
+   * - :code:`inlist(<var>, <val1>, <val2>)`
+     - :code:`df[<var>].isin((<val1>, <val2>))`
+   * - :code:`inrange(<var>, <val1>, <val2>)`
+     - :code:`df[<var>].between((<val1>, <val2>))`
+   * - :code:`subinstr(<str>, "  ", "_", .)`
+     - :code:`df[<var>].str.replace(' ', '_')`
    * - :code:`egen <newvar> = count(<var>)`
-     - :code:`<newvar> = df[<var>].notnull().sum()`
+     - :code:`<newvar> = df[<var>].notnull().sum()`. NOTE: For these
+       :code:`egen` commands, :code:`<newvar>` is a full (constant) column in
+       Stata, while it is a scalar in Python.
    * - :code:`egen <newvar> = group(<varlist>)`
      - :code:`<newvar> = econtools.group_id(df, cols=<varlist>)`
    * - :code:`egen <newvar> = max(<var>)`
@@ -168,12 +178,6 @@ Variable Manipulation
      - :code:`<newvar> = df[<var>].mean()`
    * - :code:`egen <newvar> = total(<var>)`
      - :code:`<newvar> = df[<var>].sum()`
-   * - :code:`inlist(<var>, <val1>, <val2>)`
-     - :code:`df[<var>].isin((<val1>, <val2>))`
-   * - :code:`inrange(<var>, <val1>, <val2>)`
-     - :code:`df[<var>].between((<val1>, <val2>))`
-   * - :code:`subinstr(<str>, "  ", "_", .)`
-     - :code:`df[<var>].str.replace(' ', '_')`
    * - :code:`egen <newvar> = <stat>(<var>), by(<groupvars>)`
      - :code:`df[<newvar>]  = df.groupby(<groupvars>)[<var>].transform('<stat>')`.
    * - | :code:`collapse (sd) <var> (median) <var> ///`
@@ -185,7 +189,7 @@ Variable Manipulation
    * - :code:`collapse (<stat>) <stat_vars>, by(<groupvars>)`
      - :code:`df.groupby(<groupvars>)[<stat_vars>].<stat>()`
    * - :code:`recode <var> (1/5 = 1)`
-     - N/A. 
+     - N/A, see note below. 
    * - :code:`recode <var> (1/5 = 1), gen(<newvar>)`
      - N/A. 
    * - :code:`label var <var> <label>`
@@ -530,7 +534,7 @@ Plotting
    * - :code:`binscatter`
      - :code:`econtools.binscatter`
    * - :code:`maptile`
-     - No quick tool, but easy to do.
+     - No quick tool, but easy to do with Cartopy.
    * - :code:`coefplot`
      - :code:`ax.scatter(results.beta.index, results.beta)` often works. Depends on context.
    * - :code:`twoway scatter <var1> <var2>`
@@ -548,16 +552,18 @@ Missing values
 ~~~~~~~~~~~~~~
 
 In Python, missing values are represented by a NumPy "not a number" object,
-:code:`np.nan`. In Stata, missing (:code:`.`) was larger than every number, so
-:code:`10 < .` yielded True. In Python, :code:`np.nan` is never equal to
-anything, so even :code:`np.nan == np.nan` is False. To look for missing values
-in DataFrame columns, use any of the following.
+:code:`np.nan`. In Stata, missing (:code:`.`) is larger than every number, so
+:code:`10 < .` yields True. In Python, :code:`np.nan` is never equal to
+anything. Any comparison involving :code:`np.nan` is always False, even
+:code:`np.nan == np.nan`.
+
+To look for missing values in DataFrame columns, use any of the following.
 
 * :code:`df[<varname>].isnull()` returns a vector of True and False values for each
   row of :code:`df[<varname>`.
 * :code:`df[<varname>].notnull()` is the complement of :code:`.isnull()`.
-* The function `np.isnan(<arraylike>)` takes an array and returns True or False
-  for each element of the array (a DataFrame is a special type of array).
+* The function :code:`np.isnan(<arraylike>)` takes an array and returns True or
+  False for each element of the array (a DataFrame is a special type of array).
 
 Another important difference is that :code:`np.nan` is a floating point data
 type, so any column of a DataFrame that contains missing numbers will be
