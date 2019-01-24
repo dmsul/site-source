@@ -6,6 +6,15 @@
 .. contents::
     :depth: 1
 
+.. html::
+    <style>
+        td {
+          padding: 7px;
+        }
+        tr:nth-child(even){background-color: #eeeeee;}
+    </style>
+
+
 
 Special thanks to John Coglianese for feedback and for supplying the list of
 "vital" Stata commands. Feedback and requests for additions to the list are
