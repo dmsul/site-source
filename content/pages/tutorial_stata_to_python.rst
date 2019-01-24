@@ -242,7 +242,6 @@ Examples
 ~~~~~~~~~~~~
 
 .. code-block:: ipython
-    :linenos: table
 
     In [1]: import numpy as np
 
