@@ -7,26 +7,43 @@
     :depth: 1
 
 
-Note on Notation
-----------------
+Special thanks to John Coglianese for feedback and for supplying the list of
+"vital" Stata commands. Feedback and requests for additions to the list are
+always welcome!
 
-What the :code:`<varname>` and whatnot means.
+
+Intro/Note on Notation
+----------------------
+
+Coding in Python is a little different than coding in Stata.
+
+In Stata, you have one dataset in memory. The dataset is a matrix where each
+column is a "variable" with a unique name and each row has a number (the
+special variable :code:`_n`). Everything in Stata is built around this
+paradigm.
+
+Python is a general purpose programming language where a "variable" is not a
+column of data. Variables can be anything, a single number, a matrix, a list, a
+string, etc. The Pandas package implements a kind of variable called a
+DataFrame that acts a lot like the single dataset in Stata. It is a matrix
+where each column and each row has a name. The key distinction in Python is
+that a DataFrame is itself a variable and you can work with any number of
+DataFrames at one time. You can think of each column in a DataFrame as a
+variable just like in Stata, except that when you reference a column, you also
+have to specify the DataFrame.
+
+The Stata-to-Python translations below are written assuming that you have a
+single DataFrame called :code:`df`. Placeholders like :code:`<varname>` and
+:code:`<dtafile>` show where user-specified values go in each language. Note
+that in many cases, :code:`<varname>` will be simple text in Stata (e.g.,
+:code:`avg_income`) while in Python it will be a string (:code:`'avg_income'`).
+If you were to write :code:`df[avg_income]` without quotes, Python would go
+looking for a variable--a list, a number, a string--that's been defined
+somewhere else.
 
 
 Input/Output
 ------------
-
-.. raw:: html
-
-   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-   <script>
-     $(document).ready(function() {
-       $('.gbg').parent().addClass('gbg-parent');
-     });
-   </script>
-   <style>
-      .gbg-parent {background-color:#00ff00;}
-   </style>
 
 .. list-table::
    :widths: 50 50
@@ -522,24 +539,26 @@ Other differences
 Missing values
 ~~~~~~~~~~~~~~
 
-:code:`numpy.nan`, usually :code:`np.nan` for short. In Stata, missing
-(:code:`.`) was larger than every number, so :code:`10 < .` yielded True. In
-Python, :code:`np.nan` is never equal to anything, so even :code:`np.nan ==
-np.nan` is False. To look for missing values in DataFrame columns, use any of
-the following.
+In Python, missing values are represented by a NumPy "not a number" object,
+:code:`np.nan`. In Stata, missing (:code:`.`) was larger than every number, so
+:code:`10 < .` yielded True. In Python, :code:`np.nan` is never equal to
+anything, so even :code:`np.nan == np.nan` is False. To look for missing values
+in DataFrame columns, use any of the following.
 
-* `isnull()`
-* `notnull()`
+* :code:`df[<varname>].isnull()` returns a vector of True and False values for each
+  row of :code:`df[<varname>`.
+* :code:`df[<varname>].notnull()` is the complement of :code:`.isnull()`.
+* The function `np.isnan(<arraylike>)` takes an array and returns True or False
+  for each element of the array (a DataFrame is a special type of array).
 
-Can also use `np.isnan()` for arrays.
-
-Also, :code:`np.nan` is a floating point data type, so any column of a
-DataFrame that contains missing numbers will be floats, even if the rest of the
-data are integers.
+Another important difference is that :code:`np.nan` is a floating point data
+type, so any column of a DataFrame that contains missing numbers will be
+floats. If a column of integers gets changed so that even one row is
+:code:`np.nan`, the whole column will be converted to floats.
 
 
 Floating point equality
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-In Stata, decimal numbers are never equal to anything, e.g. :code:`3.0 == 3` is
-False. Python does not quibble over this.
+In Stata, decimal numbers are never equal to anything, e.g., :code:`3.0 == 3` is
+False. This is not a problem in Python, the above equality check returns True.
