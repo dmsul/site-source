@@ -20,6 +20,10 @@ Special thanks to John Coglianese for feedback and for supplying the list of
 "vital" Stata commands. Feedback and requests for additions to the list are
 always welcome!
 
+The official Pandas documentation includes a `"Comparison with Stata"
+<https://pandas.pydata.org/pandas-docs/stable/comparison_with_stata.html>`__
+page which is another great resource.
+
 
 Intro/Note on Notation
 ----------------------
