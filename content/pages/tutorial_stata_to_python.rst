@@ -52,7 +52,8 @@ that in many cases, :code:`<varname>` will be simple text in Stata (e.g.,
 :code:`avg_income`) while in Python it will be a string (:code:`'avg_income'`).
 If you were to write :code:`df[avg_income]` without quotes, Python would go
 looking for a variable--a list, a number, a string--that's been defined
-somewhere else.
+somewhere else. Because of this, :code:`<varlist>` in Python represents a list
+of variable names: :code:`['educ', 'income', 2017]`.
 
 
 Input/Output
@@ -68,6 +69,9 @@ Input/Output
      - Python doesn't display results automatically like Stata. You have to
        explicitly call the :code:`print` function. Using a Jupyter notebook is
        the closest equivalent.
+   * - :code:`help <command>`
+     - :code:`help(<command>)` OR :code:`<command>?` in IPython (as in
+       :code:`pd.read_stata?`)
    * - :code:`cd <directory>`
      - | :code:`import os`
        | :code:`os.chdir('<directory>')`
@@ -75,6 +79,8 @@ Input/Output
    * - :code:`use <dtafile>`
      - | :code:`import pandas as pd`
        | :code:`df = pd.read_stata('<dtafile>')`
+   * - :code:`use <varlist> using <dtafile>`
+     - :code:`df = pd.read_stata('<dtafile>', columns=<varlist>)`
    * - :code:`import excel using <excelfile>`
      - :code:`df = pd.read_excel('<excelfile>')`
    * - :code:`import delimited using <csvfile>`
@@ -102,7 +108,7 @@ Sample Selection
    * - :code:`drop if <condition>`
      - :code:`df = df[~(<condition>)]`
    * - :code:`keep <var>`
-     - :code:`df = df['var']`
+     - :code:`df = df[<var>]`
    * - :code:`keep varstem*`
      - :code:`df = df.filter(like='varstem*')`
    * - :code:`drop <var>`
@@ -500,12 +506,14 @@ Econometrics
    * - :code:`xi: i.<var>`
      - :code:`pd.get_dummies(df[<var>])`
    * - :code:`i.<var2>#c.<var1>`
-     - :code:`df[<var1>] * pd.get_dummies(df[<var2>])`
+     - :code:`pd.get_dummies(df[<var2>]).multiply(df[<var1>])`
    * - :code:`reg <yvar> <xvar> if <condition>, r`
      - | :code:`import econtools.metrics as mt`
        | :code:`results = mt.reg(df[<condition>], <yvar>, <xvar>, robust=True)`
    * - :code:`reg <yvar> <xvar> if <condition>,  vce(cluster <clustervar>)`
      - :code:`results = mt.reg(df[<condition>], <yvar>, <xvar>, cluster=<clustervar>)`
+   * - :code:`areg <yvar> <xvar>, absorb(<fe_var>)`
+     - :code:`results = mt.reg(df, <yvar>, <xvar>, a_name=<fe_var>)`
    * - :code:`predict <newvar>, resid`
      - :code:`<newvar> = results.resid`
    * - :code:`predict <newvar>, xb`
@@ -523,11 +531,13 @@ Econometrics
    * - :code:`outreg2`
      - :code:`econtools.outreg`
    * - :code:`reghdfe`
-     - None.
+     - None (hoping to add it to Econtools soon).
 
 
 Plotting
 --------
+
+Visualizations are best handled by the packages Matplotlib and Seaborn.
 
 .. list-table::
    :widths: 50 50
