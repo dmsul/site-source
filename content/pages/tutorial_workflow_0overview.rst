@@ -10,4 +10,4 @@ in programming.
 
 #. `Software Setup <tutorial_workflow_1setup.html>`__
 #. `Project File Organization <tutorial_workflow_2project_org.html>`__
-#. `Best Practices when Writing Python <tutorial_workflow_3python.html>`__
+#. `Best Practices when Coding <tutorial_workflow_3bestpractice.html>`__

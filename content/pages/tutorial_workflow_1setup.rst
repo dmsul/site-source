@@ -5,12 +5,13 @@
     :start: 1
 
 
-Writing Code in Econ:
+**"Writing Code in Econ" Series**
 
 * `Overview <tutorial_workflow_0overview.html>`__
 * Next: `Project Organization <tutorial_workflow_2project_org.html>`__
 
 .. contents::
+    Page Contents
 
 -----
 
@@ -20,7 +21,6 @@ These are accounts that you'll likely have for a long time, so don't worry
 about tieing them to your work email.
 
 #. `Trello <https://trello.com/danielsullivan49/recommend>`__
-#. `Bitbucket <https://www.bitbucket.org>`__
 #. `Github <https://www.github.com>`__
 
 You'll also need a bunch of new software.
@@ -65,7 +65,7 @@ CMDer
 +++++
 
 This is only for people on Windows because Windows has awful command line
-interfaces (shells). CMDer is an attempt to fix that. Download it `here
+interfaces (consoles). CMDer is an attempt to fix that. Download it `here
 <http://www.cmder.net>`__.
 
 Also, once you have Git installed, you can use Git bash through CMDer to have
@@ -110,3 +110,6 @@ These are optional or as the need arises.
    letter; add latex to your path; do *not* install the offered editor. Be
    aware that this takes 30+ minutes to install, depending on your internet
    connection.
+
+
+**Next in "Writing Code in Econ":** `Project Organization <tutorial_workflow_2project_org.html>`__

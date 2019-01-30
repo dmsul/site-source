@@ -4,13 +4,14 @@
 .. sectnum::
 
 
-Writing Code in Econ:
+**"Writing Code in Econ" Series**
 
 * `Overview <tutorial_workflow_0overview.html>`__
 * Previous: `Software Setup <tutorial_workflow_1setup.html>`__
-* Next: `Best Practices when Writing Python <tutorial_workflow_3python.html>`__
+* Next: `Best Practices when Coding <tutorial_workflow_3bestpractice.html>`__
 
 .. contents::
+    Page Contents
 
 -----
 
@@ -303,3 +304,5 @@ example is:
 
     python reg_main.py --lag 3
     python plot_a_variable.py --grayscale
+
+**Next in "Writing Code in Econ":** `Best Practices when Coding <tutorial_workflow_3bestpractice.html>`__

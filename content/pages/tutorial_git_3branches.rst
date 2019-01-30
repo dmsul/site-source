@@ -5,13 +5,14 @@
 
 .. sectnum::
 
-A Brief Intro to Git:
+**A Brief Intro to Git**
 
 * `Overview <tutorial_git_0overview.html>`__
 * Previous: `First Steps: Making commits <tutorial_git_2commits.html>`__
 * Next: `Remotes: Sharing Code Online <tutorial_git_4remotes.html>`__
 
 .. contents::
+    Page Contents
 
 -----
 
@@ -198,7 +199,7 @@ Before we do anything, let's run our code to make sure we're using :code:`print_
 
 .. code-block:: shell-session
 
-    $ python hello.py$ python hello.py
+    $ python hello.py
     Hello, world!
     Hello, world!
     Hello, world!
@@ -217,11 +218,12 @@ check that we can.
     * 7d6a299 -  (HEAD -> master) Added a variable to hello.py
     * 823459f -  Add hello.py
 
-Recall that :code:`HEAD` points to whatever we've checked out.
+Recall that :code:`HEAD` points to whatever we're currently working on (what
+have checked out).
 
-By checking out :code:`master`, Git has reverted our code project to be exactly
-like it was before we did our :code:`add-subroutine` commits.  The new file
-:code:`superprinter.py` is gone:
+By checking out :code:`master`, Git has reverted our code directory to be
+exactly like it was before made our :code:`add-subroutine` commits. The new
+file :code:`superprinter.py` is gone:
 
 .. code-block:: shell-session
 
@@ -239,13 +241,16 @@ and :code:`hello.py` looks like it did before:
     $ python hello.py
     Hello, world!
 
+Of course, we can recover our :code:`add-subroutine` commits by checking out
+that branch again.
+
 
 Making a second branch
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Let's pretend that someone else on our team is the one working on
-:code:`add-subroutine` and that our job is actually to come up with a quote
-more inspiring than "Hello, world!".
+:code:`add-subroutine` and that our job is to come up with a quote more
+inspiring than "Hello, world!".
 
 .. code-block:: shell-session
 
@@ -292,7 +297,8 @@ Now, if we look at our log, we can see why branches are called "branches":
     * 7d6a299 -  (master) Added a variable to hello.py
     * 823459f -  Add hello.py
 
-The branching is even more evident if we use a graphical Git interface:
+The branching is even more evident if we use a graphical Git interface like
+Sourcetree:
 
 .. image:: {filename}/images/git_graph.png
     :alt: Git graph
@@ -365,7 +371,8 @@ changed :code:`hello.py`, Git can't easily merge the changes.
 
     no changes added to commit (use "git add" and/or "git commit -a")
         
-Git will create a version of the file with the conflicts marked with
+Despite the alarming CONFLICT warning, merge conflicts are nothing to be scared
+of. Git will create a version of the file with the conflicts marked with
 :code:`<<<`, :code:`===`, and :code:`>>>`.
 
 .. code-block:: shell-session
@@ -392,7 +399,7 @@ Combine them so that :code:`hello.py` looks like this
     to_print = "That rug really tied the room together, did it not?"
     print_thrice(to_print)
 
-Which implements both major changes we made. Once we're done editing the file,
+This implements both major changes we made. Once we're done editing the file,
 we finish the merge:
 
 .. code-block:: shell-session
@@ -445,3 +452,5 @@ branch labels, so we can delete them.
     |/
     * 7d6a299 -  Added a variable to hello.py
     * 823459f -  Add hello.py
+
+**Next in "A Brief Intro to Git":** `Remotes: Sharing Code Online <tutorial_git_4remotes.html>`__
