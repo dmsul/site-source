@@ -241,4 +241,4 @@ the hashes in this tutorial.
 After the hash is the commit message we wrote. :code:`(HEAD -> master)` marks what
 the most recent commit is. Don't worry about this just yet, we'll get to it.
 
-** Next in :A Brief Intro to Git":** `Branches and Merging <tutorial_git_3branches.html>`__
+**Next in "A Brief Intro to Git":** `Branches and Merging <tutorial_git_3branches.html>`__
