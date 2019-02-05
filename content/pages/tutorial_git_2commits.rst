@@ -120,10 +120,10 @@ You probably noticed that the last :code:`git status` listed our file under
 existing file) to the permanent record of the repository is a two-step process.
 
 The first step is **staging**.  This is like putting items in a moving box but
-leaving the box open.  We might put more things in, we take more
+leaving the box open.  We might put more things in or take 
 things out--it's not permanent *yet*. We staged our new file with
-:code:`git add hello.py`; we told git to add :code:`hello.py` to a box but to leave the top open
-for now.
+:code:`git add hello.py`; we told git to add :code:`hello.py` to a box but to
+leave the top open for now.
 
 The second step is the **commit**. Making a commit takes all the changes we've
 staged (the things we've put in the box) and adds them to the permanent record
@@ -136,13 +136,13 @@ with :code:`git add hello.py`, which is why :code:`hello.py` is now listed under
 Now let's actually make the commit. The base command is :code:`git commit`.
 However, it's good practice to also add a short note or message that describes
 the commit; it's like writing the contents of a box on the outside of the box.
-The easiest way to do this is with the :code:`-m` option, "m" for "message". So to
-make the commit with the message "Add hello.py", run this command:
+The easiest way to do this is with the message option (:code:`-m`). So to
+make the commit with the message "New repo: added hello.py", run this command:
 
 .. code-block:: shell-session
 
-    $ git commit -m "Add hello.py"
-    [master (root-commit) 823459f] Add hello.py
+    $ git commit -m "New repo: added hello.py"
+    [master (root-commit) 823459f] New repo: added hello.py
      1 file changed, 1 insertion(+)
      create mode 100644 hello.py
 
@@ -223,19 +223,22 @@ The whole point of commits is to keep track of the incremental changes we make
 to our code. So we need a way to look back at the list of commits we've made.
 This is done with the :code:`git log` command. However, the standard :code:`git log`
 command puts out a lot of information we don't necessarily need. If you're
-using the :code:`.gitconfig` file listed above, you can use :code:`git lg` to see a
+using the :code:`.gitconfig` file listed above, you can use :code:`git shortlog` to see a
 customized version of :code:`git log` that is a little simpler:
 
 .. code-block:: shell-session
 
     $ git shortlog
     * 7d6a299 -  (HEAD -> master) Added a variable to hello.py
-    * 823459f -  Add hello.py
+    * 823459f -  New repo: added hello.py
 
 Each :code:`*` marks a commit. Next to that is the commit's ID number or "hash".
-For our most recent commit, this is :code:`7d6a299`. Your hashes will likely be
-different because git generates unique ID's for every commit. That's okay. We
-won't be directly using the hashes in this tutorial for a while.
+For our most recent commit, this is :code:`7d6a299`. If you've been following
+along with this guide, your hashes will likely be different because git
+generates unique ID's for every commit. That's okay. We won't be directly referencing
+the hashes in this tutorial.
 
 After the hash is the commit message we wrote. :code:`(HEAD -> master)` marks what
 the most recent commit is. Don't worry about this just yet, we'll get to it.
+
+** Next in :A Brief Intro to Git":** `Branches and Merging <tutorial_git_3branches.html>`__

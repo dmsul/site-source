@@ -66,3 +66,6 @@ Double check that your :code:`.gitconfig` is ready by running this command:
     $ cat ~/.gitconfig
 
 The :code:`cat` command will print the file on your screen. You can also use :code:`git config --list`.
+
+
+**Next in "A Brief Intro to Git":** `First Steps: Making Commits <tutorial_git_2commits.html>`__
