@@ -44,7 +44,8 @@ Research in Progress
 - **"Air Pollution Impacts of Shale Gas Development in Pennsylvania"** with
   Ruohauo Zhang, Huan Li, Neha Khanna, Alan Krupnick, and Elaine Hill
 - **"Does unconventional oil and gas development affect infant health through air
-  pollution?”** with Elaine Hill and Alan Krupnick
+  pollution?”** with with Elaine Hill, Neha Khanna, Alan Krupnick, Huan Li, and
+  Ruohauo Zhang
 - **"Industrial Air Pollution and Infant Health"**
 
 
