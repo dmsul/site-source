@@ -54,7 +54,7 @@ MENUITEMS = (
 
 SOCIAL = (
     ('Github', 'http://github.com/dmsul'),
-    ('Twitter', 'https://twitter.com/dmsul'),
+    ('Twitter', 'https://twitter.com/Dan_M_Sullivan'),
     ('Email', 'mailto:sullivan@rff.org', 'envelope'),
 )
 
