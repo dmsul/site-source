@@ -102,10 +102,9 @@ kept in :code:`src/`. The rule is that raw data goes from the BLS website or
 where ever it came from straight into :code:`src/` and the raw files are never
 touched again. *Never manually edit the raw CSV files.* All cleaning is
 programmatic, which means that you should be able to download the data fresh
-from the source and immediately run the code.  files from :code:`src/` and save
-them to :code:`data-project-name-data/`. That way you know that anything not in
-:code:`src/` was created by you and can be deleted as long as you still have the
-code that created the file in the first place.
+from the source and immediately run the code.
+That way you know that anything not in :code:`src/` was created by you and can
+be recreated as long as you have the code and the source data.
 
 
 Define data locations once (and only once)
@@ -115,8 +114,8 @@ The :code:`util/` folder is for scripts that will be used a lot within the data
 cleaning itself but not by any other Python code or projects. In fact,
 :code:`util/` will often just contain a single file, :code:`env.py`. The
 :code:`util/env.py` file contains environmental variables for the project,
-hence the name. These are variables like where on the hard drive the raw data
-are stored.  A basic :code:`util/env.py` file looks like this:
+hence the name. These variables define where on the hard drive the raw data
+are stored, etc. A basic :code:`util/env.py` file looks like this:
 
 .. code-block:: python3
 
