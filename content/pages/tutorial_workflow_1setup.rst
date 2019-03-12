@@ -25,27 +25,27 @@ about tieing them to your work email.
 
 You'll also need a bunch of new software.
 
-Atom (or other editor)
-++++++++++++++++++++++
+Visual Studio Code (or other editor)
+++++++++++++++++++++++++++++++++++++
 
 Many built-in text editors that come with social science software are okay.
 Many are hot garbage.
 If you're going to spend any significant amount of time writing code, whether
-it's Stata, Matlab, Python, Latex, or whatever, your productivity will benefit
-greatly from having a single, professional-grade text editor. This is true for
+it's Stata, R, Matlab, Python, or Latex, you will be productive
+using a single, professional-grade text editor. This is true for
 two reasons.
 
 First, real text editors have a number of features
 designed to make your life easier, like auto-completion, Git integration,
 syntax checking/linting, code folding, project-level search and replace, etc.
-Some built-in editors have some of these features. Some have few or none.
+Some built-in editors have some of these features. Most have few or none.
 
 Second, using a single editor across all languages means that as you get better
 in one language, you get better in all of them. You have one set of keyboard
 shortcuts to learn, one set of options to set, one set of tricks to master.
 
 If you're not already attached to a serious editor (Vim, Emacs, Sublime Text),
-I recommend you start with `Atom <https://atom.io/>`_.
+I recommend you start with `Visual Studio Code <https://code.visualstudio.com>`_.
 
 Git
 +++

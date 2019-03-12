@@ -46,7 +46,7 @@ You can quickly set it up by copying the following settings into your
             excludesfile = ~/.gitignore_global
             autocrlf = false
             fileMode = false
-            editor = atom                           # Fill this in
+            editor = code.exe                       # Fill this in
     [color]
             ui = true
     [difftool]
