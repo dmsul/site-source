@@ -64,7 +64,7 @@ difficult to make sure any changes you make later also get copied and pasted.
 
 If a file name (e.g., :code:`c:\data\subsample2.csv`) is defined in only one
 place and imported elsewhere, you can change the file name in that single place
-know for certain the change will propagate through the rest of your code.
+and know for certain the change will propagate through the rest of your code.
 
 If you run lots of robustness checks on the same sample of data, do that data
 prep in a single function and import that function in every robustness check
@@ -78,6 +78,7 @@ Figures and tables created by your code should be inserted directly into
 presentations or papers without manual editing.
 You don't want to have to tweak tables every time you re-create them.
 You're bound to insert a typo, forget one of the steps in tweaking, etc.
+Don't repeat yourself!
 
 
 Write self-documenting code
@@ -96,12 +97,15 @@ Write self-documenting code
     January 29, 2019</a></blockquote>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Give variables, functions, and files descriptive names. Err on the side of
-names being too long and too descriptive. Part of the reason you should be
-using tools like a good text editor and a good console like CMDer is that they
-have lots of predictive text and auto-completion functions to help with long
-variable and file names. Use comments to clarify why a particular coding
-choice was made. A few examples:
+Give descriptive names to variables, functions, and files.
+Err on the side of names being too long and descriptive.
+It takes longer to type these names but the added information will be worth it
+in the long run.
+(Part of the reason you should be using tools like a good text editor and a good
+console like CMDer is that they have predictive text completion and
+other tools to help with long variable and file names.)
+Use comments to clarify why a particular coding choice was made.
+A few examples:
 
 * The filename :code:`reg_sale_price.py` is beter than :code:`reg.py`.
   A name like :code:`table1.py` is completely forbidden.
@@ -149,8 +153,8 @@ You could add a comment
     vector_B = np.zeros(565, 1)
     vector_C = np.zeros(3109, 1)
 
-But the best way is Don't Repeat Yourself, define these numbers in exactly one
-place (especially if they're used in multiple places like here) and let the
+But the best way is Don't Repeat Yourself: Define these numbers in exactly one
+place--especially if they're used in multiple places like here--and let the
 code be self explanatory.
 
 .. code-block:: python3
@@ -212,7 +216,7 @@ Scripts should only contain functions, constants, and an "if-main" block
 making you more productive as a programmer while having litte impact on what
 your code actually does.
 This section is different.
-It has a stylistic element, but not using an "if-main" block can significantly
+It does have a stylistic element, but not using an "if-main" block can significantly
 impact how your script runs. 
 
 When you import something from another Python file, the entire file is
@@ -362,7 +366,9 @@ code to crash.
 
 * Do not use tabs to indent. Use 4 spaces. Your editor should have a setting
   for this, so that when you hit the tab key the editor inserts 4 spaces
-  instead of a tab code (:code:`\t`).
+  instead of a tab code (:code:`\t`). (We do this because each editor
+  displays :code:`\t` tabs in different ways, but all editors display spaces
+  the same.)
 * When you break a line using parentheses, the next line should line up with
   the open parenthesis on the line above. If the open parenthesis is alone
   on that line, indent once.
@@ -429,7 +435,7 @@ different things. For example:
 This short example isn't too bad, but on larger scales it can be very confusing
 when a variable you thought was a DataFrame ends up being a string or vice
 versa. This type changing is also computationally slower. (It also messes up
-the `mypy` linter/type-checker.) A better solution is to be more explicit in
+the :code:`mypy` linter/type-checker.) A better solution is to be more explicit in
 naming your variables:
 
 .. code-block:: python3
@@ -555,6 +561,7 @@ Example Script
     def read_and_prep_data():
         df = pd.read_csv('tmp.txt', header=None)
         df.columns = ['word']
+        return df
 
 
     if __name__ == '__main__':
@@ -563,6 +570,31 @@ Example Script
         df['is_triangle'] = df['word_score'].apply(is_triangle)
 
         print(df['is_triangle'].sum())
+
+Example Bad Script
+~~~~~~~~~~~~~~~~~~
+
+Each of the functions in the above script is referenced only once, so why write
+re-usable functions at all?
+Below is the same script re-written without functions or an if-main block.
+Is it easier or harder to follow what's going on in the code?
+
+.. code-block:: python3
+
+    from string import ascii_uppercase
+    import numpy as np
+    import pandas as pd
+
+    df = pd.read_csv('tmp.txt', header=None)
+    df.columns = ['word']
+    df['word_score'] = 0
+    LETTER_SCORE = {ascii_uppercase[x - 1]: x for x in range(1, 27)}
+    for idx, word in df['word'].iteritems():
+        for letter in word:
+            df.loc[idx, 'word_score'] += LETTER_SCORE[letter]
+    df['positive_root'] = (-1 * 1 + np.sqrt(1 ** 2 - 4 * 1 * -2 * df['word_score'])) / (2 * 1)
+    df['is_triangle'] = (df['positive_root'] == df['positive_root'].astype(int))
+    print(df['is_triangle'].sum())
 
 
 Follow Robust Development Practices
@@ -671,3 +703,9 @@ Use universal, immutable identifiers whenever possible
 For example, use FIPS, not your own made up county ID's. Any time you introduce
 your own arbitrary identifiers, you run the risk of introducing inconsistencies
 between datasets.
+
+For example, Stata's :code:`egen group()` command is not guaranteed to be
+consistent across different scripts.
+You can use :code:`group()` in two different scripts to create IDs, and the IDs
+will merge with each other such that :code:`assert _merge == 3`, but there's no
+guarantee that the merge is correct.
