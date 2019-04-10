@@ -8,6 +8,8 @@
 Working Papers
 --------------
 
+- **"Does pollution in cap-and-trade markets flow to poor neighborhoods?"** |br|
+  February 2019
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
   September 2018 (updated January 2019) |moncoverage|_ |br|
@@ -16,8 +18,6 @@ Working Papers
   `NPR Louisville <http://wfpl.org/as-it-turns-out-louisvilles-particle-air-pollution-was-as-bad-as-the-epa-thought/>`__,
   `EDF Blog
   <https://www.edf.org/blog/2018/09/20/new-challenge-sensors-24-million-more-americans-breathing-unhealthy-air-previously>`__
-- **"Does pollution in cap-and-trade markets flow to poor neighborhoods?"** |br|
-  November 2018
 - **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
   July 2017 |pollsort|_ |br|
   Press: `Fusion <http://fusion.net/story/319892/true-cost-of-environmental-gentrification-study>`_
