@@ -97,8 +97,9 @@ entire United States.
 The map below compares the NAAQS to the three-year annual average of
 satellite-based PM2.5 readings for 2012-2014 for every square kilometer of the
 continental US.
-(The three-average for this period is "design value", or relevant statistic,
-used to assess compliance with the NAAQS.)
+(The three-average for this period is the "design value", or relevant statistic,
+used to assess compliance with the most recent revision to the NAAQS
+implemented in 2015.)
 
 |national-map|
 
@@ -146,9 +147,21 @@ Misclassification costs billions in increased mortality
 -------------------------------------------------------
 
 Nonattainment status brings cleaner air and attending health benefits.
-If all misclassified counties had been made nonattainment in 2015, how much
-would residents of those counties benefited?
-Somewhere between $5 billion and $51 billion.
+The last time nonattainment designations were made for the PM2.5 annual NAAQS
+was 2015.
+What if all misclassified counties had been made nonattainment?
+We estimate the improvement in air pollution that would have hypothetically
+occurred in a number of ways.
+We then use the value of decreased mortality risk (or `value of statistical
+life <https://en.wikipedia.org/wiki/Value_of_life>`__) to calculate the dollar
+value of cleaner air to county residents.
+
+Our most realistic estimate of air quality improvement would have been worth
+about $51 billion during 2016-2017, while our most conservative estimate yields
+a worth of $5 billion for the same period.
+These values only account for the benefit of decreased mortality and not
+morbidity effects like asthma, COPD, and other lung disorders, or decreased
+productivity and missed days of work or school.
 
 
 .. |national-map| image:: {filename}/images/map_msatna3_conus_2014.png

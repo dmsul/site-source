@@ -30,7 +30,3 @@ improved amenities by leaving, the distribution of benefits from the
 improvement is likely regressive.  Together, these results suggest that the
 distribution of benefits from improved air quality likely favors higher-income
 households.
-
-
-
-
