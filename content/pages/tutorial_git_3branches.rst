@@ -169,10 +169,12 @@ to our new commit and that :code:`master` does not.
 Let's make one more change so that :code:`hello.py` uses our subroutine:
 
 .. code-block:: python3
+
     from superprinter import print_thrice
 
     to_print = "Hello, world!"
     print_thrice(to_print)
+
 
 Commit the change:
 
@@ -190,12 +192,13 @@ Commit the change:
     * 823459f -  Add hello.py
 
 Our two branches have diverged further. But, we can go back to :code:`master`
-any time we want.
+any time we want by using :code:`$ git checkout master` as you'll see below.
 
 Checking out a different branch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before we do anything, let's run our code to make sure we're using :code:`print_thrice`:
+Before moving on, let's double check that :code:`hello.py` looks like it
+should, either by running it:
 
 .. code-block:: shell-session
 
@@ -203,6 +206,8 @@ Before we do anything, let's run our code to make sure we're using :code:`print_
     Hello, world!
     Hello, world!
     Hello, world!
+
+or checking in our editor or git bash via :code:`$ cat hello.py`.
 
 Looks good. Now let's go back to the :code:`master` branch for a bit, just to
 check that we can.
@@ -218,8 +223,8 @@ check that we can.
     * 7d6a299 -  (HEAD -> master) Added a variable to hello.py
     * 823459f -  Add hello.py
 
-Recall that :code:`HEAD` points to whatever we're currently working on (what
-have checked out).
+Recall that :code:`HEAD` points to whatever we're currently working on--what
+have checked out.
 
 By checking out :code:`master`, Git has reverted our code directory to be
 exactly like it was before made our :code:`add-subroutine` commits. The new
@@ -242,15 +247,19 @@ and :code:`hello.py` looks like it did before:
     Hello, world!
 
 Of course, we can recover our :code:`add-subroutine` commits by checking out
-that branch again.
+that branch again via :code:`$ git checkout add-subroutine`, but don't do that
+just yet.
 
 
 Making a second branch
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Let's pretend that someone else on our team is the one working on
+Let's pretend that someone else on our team is working on
 :code:`add-subroutine` and that our job is to come up with a quote more
 inspiring than "Hello, world!".
+
+We currently have :code:`master` checked out, so any new branches we make will
+use :code:`master` as their jumping off point.
 
 .. code-block:: shell-session
 
@@ -345,11 +354,19 @@ Let's merge :code:`add-subroutine` first.
     * 823459f -  Add hello.py
 
 
+The changes made to the code in :code:`add-subroutine` now also exist in
+:code:`master`. Git does this by simply "re-playing" the changes made in the
+commits that are merged. That is, Git looks at what changes where made in
+:code:`eb198f3` and replicates them in the :code:`master` branch. Then it does
+the same for :code:`fed0858`.
+
+
 Resolving conflicts in merges
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now merge :code:`new-quote` to :code:`master`. Because our two branches both
-changed :code:`hello.py`, Git can't easily merge the changes.
+changed :code:`hello.py`, Git can't easily merge the changes. (It tries to
+re-play the changes, but can't find the place to start.)
 
 .. code-block:: shell-session
 
