@@ -1,5 +1,6 @@
 :save_as: index.html
 
-I am an economist at `Resources for the Future <http://www.rff.org>`_. My
-research focuses on environmental and urban economics, especially the effects
-of air pollution on housing markets, migration decisions, and health outcomes.
+I am an economist at the `JPMorgan Chase Institute
+<jpmorganchaseinstitute.com>`_  on the consumer research team.
+Previously, I was a research fellow at Resources for the Future, where my
+research focused on air pollution.

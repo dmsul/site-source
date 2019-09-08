@@ -12,7 +12,7 @@ Working Papers
   February 2019
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
-  September 2018 (updated January 2019) |moncoverage|_ |br|
+  January 2019 |moncoverage|_ *revisions requested* |br|
   Press:
   `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__, 
   `NPR Louisville <http://wfpl.org/as-it-turns-out-louisvilles-particle-air-pollution-was-as-bad-as-the-epa-thought/>`__,
@@ -43,10 +43,9 @@ Research in Progress
 
 - **"Air Pollution Impacts of Shale Gas Development in Pennsylvania"** with
   Ruohauo Zhang, Huan Li, Neha Khanna, Alan Krupnick, and Elaine Hill
-- **"Does unconventional oil and gas development affect infant health through air
-  pollution?”** with with Elaine Hill, Neha Khanna, Alan Krupnick, Huan Li, and
-  Ruohauo Zhang
-- **"Industrial Air Pollution and Infant Health"**
+- **"Does unconventional oil and gas development affect infant health through
+  air pollution?”** with with Elaine Hill, Neha Khanna, Alan Krupnick, Huan Li,
+  and Ruohauo Zhang
 
 
 Publications
