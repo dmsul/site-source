@@ -11,15 +11,16 @@ Working Papers
 - **"Does pollution in cap-and-trade markets flow to poor neighborhoods?"** |br|
   February 2019
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
-  Network"** with Alan Krupnick |br|
-  January 2019 |moncoverage|_ *revisions requested* |br|
+  Network"** with Alan Krupnick (*revisions requested*) |br|
+  January 2019 |moncoverage|_,
+  `Summary <research_summary_satellites_fill_monitor_gaps.html>`__ |br|
   Press:
   `E&E News <https://www.eenews.net/greenwire/stories/1060096761/search?keyword=epa+undercounts>`__, 
   `NPR Louisville <http://wfpl.org/as-it-turns-out-louisvilles-particle-air-pollution-was-as-bad-as-the-epa-thought/>`__,
   `EDF Blog
   <https://www.edf.org/blog/2018/09/20/new-challenge-sensors-24-million-more-americans-breathing-unhealthy-air-previously>`__
 - **"Residential Sorting and the Incidence of Local Public Goods: Theory and Evidence from Air Pollution"** |br|
-  July 2017 |pollsort|_ |br|
+  July 2017 |pollsort|_, `Summary <research_summary_sorting_air_quality.html>`__ |br|
   Press: `Fusion <http://fusion.net/story/319892/true-cost-of-environmental-gentrification-study>`_
 - **"The True Cost of Air Pollution: Evidence from the Housing Market"** |br|
   March 2017 |pollhouse|_

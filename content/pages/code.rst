@@ -8,6 +8,8 @@ The :code:`econtools` package (`source code
 <http://www.danielmsullivan.com/econtools>`_) is a set of data manipulation and
 econometrics tools for Python's SciPy library.
 
+.. image:: https://gh-card.dev/repos/dmsul/econtools.svg
+
 cyvincenty
 ----------
 
@@ -15,14 +17,7 @@ cyvincenty
 <https://github.com/dmsul/cyvincenty>`__) is a very fast Cython (Python and C
 pidgin) implementation of Vincenty's distance formula.
 
-Stata syntax for Vim
---------------------
-
-:code:`vim-stata` (`code and documentation
-<https://github.com/dmsul/vim-stata>`__) is an extension of the Stata syntax
-package that comes with Vim. It covers more commands and situation and also
-includes some minimal folding. It can be installed using Pathogen, VimPlug,
-etc.
+.. image:: https://gh-card.dev/repos/dmsul/cyvincenty.svg
 
 biblatex-aer
 ------------
@@ -33,6 +28,20 @@ bibliography style to Biber and BibLaTeX. BibLaTeX offers a much larger
 set of options than the older BibTex package. However, it requires its own
 style files and cannot use BibTex's :code:`bst` style files.
 
+.. image:: https://gh-card.dev/repos/dmsul/biblatex-aer.svg
+
+
+
+Stata syntax for Vim
+--------------------
+
+:code:`vim-stata` (`code and documentation
+<https://github.com/dmsul/vim-stata>`__) is an extension of the Stata syntax
+package that comes with Vim. It covers more commands and situation and also
+includes some minimal folding. It can be installed using Pathogen, VimPlug,
+etc.
+
+.. image:: https://gh-card.dev/repos/dmsul/vim-stata.svg
 
 Other Resources
 ---------------
