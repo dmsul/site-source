@@ -45,6 +45,7 @@ MENUITEMS = (
     ('CV', '/pdf/Sullivan_CV.pdf'),
     ('Research', '/pages/research.html'),
     ('Code', '/pages/code.html'),
+    ('Tutorials', '/pages/tutorials.html'),
     ('Contact', '/pages/contact.html'),
 )
 

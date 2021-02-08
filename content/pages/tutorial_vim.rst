@@ -135,16 +135,12 @@ Searching the buffer
   :code:`<RegEx>` in the current buffer. This uses full Regular Expression
   matching (with a bit of Vim-specific syntax).
 
-    - :code:`/Hello` takes you to the next "Hello"
-    - :code:`/^Hello` takes you to the next "Hello" that is at the beginning of
-      a line.
-    - :code:`/\sHello` takes you to the next "Hello" that has a space (or tab)
-      right in front of it.
+  - :code:`/Hello` takes you to the next "Hello"
+  - :code:`/^Hello` takes you to the next "Hello" that is at the beginning of a line.
+  - :code:`/\sHello` takes you to the next "Hello" that has a space (or tab) right in front of it.
 
-* :code:`?` - Same as :code:`/` but search backward in the buffer instead of
-  forward
-* :code:`n(N)` - next (previous) instance of the most recent :code:`/` or
-  :code:`?` search  
+* :code:`?` - Same as :code:`/` but search backward in the buffer instead of forward
+* :code:`n(N)` - next (previous) instance of the most recent :code:`/` or :code:`?` search  
 * :code:`*` - Do a :code:`/` search for the word under cursor. This is *very*
   useful for finding all instances of the variable your cursor is on.
 
@@ -182,13 +178,10 @@ commands, you actually know (at least) 25 commands.
 * :code:`d[m]` - delete from cursor location to wherever :code:`[m]` takes the
   cursor. Examples:
 
-    - :code:`dw` delete from here (location of cursor) to beginning of next
-      word (includes character under the cursor)  
-    - :code:`dtT` deletes "to" (up to but not including) the next instance of
-      "T" on this line
-    - :code:`df)` deletes to ("finds") the next instance of ")" on this line  
-    - :code:`d/the` deletes everything between the cursor and the next instance
-      of "the" in the buffer.
+  - :code:`dw` delete from here (location of cursor) to beginning of next word (includes character under the cursor)  
+  - :code:`dtT` deletes "to" (up to but not including) the next instance of "T" on this line
+  - :code:`df)` deletes to ("finds") the next instance of ")" on this line  
+  - :code:`d/the` deletes everything between the cursor and the next instance of "the" in the buffer.
 
 * :code:`dd` delete this entire line
 * :code:`D` delete from here to end of line  
@@ -199,8 +192,10 @@ commands, you actually know (at least) 25 commands.
 **Yank (copy)**
 
 * :code:`y[m]` yank (copy). Same basic behavior as d (delete).
-    - :code:`yw` yank from here to beginning of next word
-    - :code:`y$` yank from here to end of line
+
+  - :code:`yw` yank from here to beginning of next word
+  - :code:`y$` yank from here to end of line
+
 * :code:`yy` - yank the current line
 
 *Note*: To make it consistent with :code:`D`, it's common to add an analagous
@@ -215,8 +210,10 @@ mapping for :code:`Y` in your vimrc like so: :code:`nnoremap Y y$`
 **Indent**
 
 * :code:`>[m]` - Indent through modtion :code:`m`.
-    - :code:`>>` - Indent current line.
-* :code:`<[m]` - Un-indent/opposite of :code:`>`.
+
+  - :code:`>>` - Indent current line.
+
+* :code:`<[m]` - Un-indent, opposite of :code:`>`.
 
 
 Special Motion Commands
@@ -225,18 +222,23 @@ Special Motion Commands
 * :code:`daw` - "Delete a word"; delete the word under the cursor plus any trailing space.
 * :code:`diw` - "Delete inner word"; delete the word under the cursor, leave spaces.
 
-Explain.
+..
 
-* :code:`[e]ip`
-* :code:`[e]ap`
-* :code:`[e]i(`
-* :code:`[e]a(`
+* :code:`[e]ip` - [edit command] the inner paragraph. Where "edit" can be
+  :code:`d` for delete, :code:`c` for change, etc.
+* :code:`[e]ap` - [edit command] a paragraph (like :code:`i` but including
+  space around paragraph.
+* :code:`[e]i(` - [edit command] inside parentheses
+* :code:`[e]a(` - [edit command] a parentheses pair (like :code:`i` but
+  including the parens
+
 
 Undo/Redo
 +++++++++
 
 * :code:`u` - undo (like Ctrl+Z in Word)
 * :code:`c-r` - redo (like Ctrl+Y in Word) 
+
 
 Saving and quitting
 ~~~~~~~~~~~~~~~~~~~
@@ -290,8 +292,9 @@ Change letter case
 * :code:`~` - toggle the case of this character 
 * :code:`[#]~` - toggle case of :code:`[#]` next character(s)  
 * :code:`g~[m]` - toggle case with motion [m]  
-* :code:`gU[m]` - uppercase  
-* :code:`gu[m]` - lowercase  
+* :code:`gU[m]` - make uppercase between current cursor and where motion
+  command :code:`m` takes the cursor
+* :code:`gu[m]` - make lowercase
 
 Combine lines
 
@@ -342,9 +345,9 @@ adding :code:`inoremap jk <Esc>` to your vimrc will allow you to use a quick
 :code:`jk` instead of :code:`<Esc>`.
 
 * :code:`I` - Enter insert mode at the beginning of the current line's text
-  (same as doing :code:`^` then :code:`i:code:`)
+  (same as doing :code:`^` then :code:`i`)
 * :code:`A` - Enter insert mode After the end of the current line (like
-  :code:`$` then :code:`a:code:`). "Append" is another good mnemonic.
+  :code:`$` then :code:`a`). "Append" is another good mnemonic.
 * :code:`o` - Add a new line after the current line and enter insert mode (like
   doing :code:`A<Enter>`)  
 * :code:`O` - Add a new line before the current line and enter insert mode  
@@ -354,7 +357,7 @@ adding :code:`inoremap jk <Esc>` to your vimrc will allow you to use a quick
 The "change" commands delete the desired text and immediately enters insert mode. 
 
 * :code:`c[m]` - Change text from here to [m]. This includes "advanced" movements.
-    - :code:`ci(` - Change everything between the current parentheses.
+  - :code:`ci(` - Change everything between the current parentheses.
 * :code:`cc` - Change this whole line.  
 * :code:`C` - Change from here to end of line.  
 
@@ -378,7 +381,7 @@ Visual "Mode"
 
 * :code:`ggvG` - Highlight whole file, i.e., go to beginning of file
   (:code:`gg`), enter visual mode (:code:`v`), go to end of file
-  (:code:`G:`).  
+  (:code:`G`).  
 
 Once a selection has been made, you can use an edit command on that selection
 and it will (usually) behave as you'd expect.  
@@ -403,7 +406,7 @@ program) use the :code:`*` register, so:
 
 * :code:`p` - pastes what's in the default register (after the cursor, like
   :code:`a`)  
-* :code:`P` - paste before cursor (like command :code:`i:code:`)  
+* :code:`P` - paste before cursor (like command :code:`i`)  
 * :code:`"*p` - paste what's in the OS register (i.e., if you already yanked
   to :code:`*` or you did a Ctrl+C copy in another program)
 
@@ -415,25 +418,24 @@ override this behavior (I think by Tim Pope).
 Search and Replace
 ~~~~~~~~~~~~~~~~~~
 
-:code:`:<range>s/<re>/<str>/<flags>` - substitute first instance of
-:code:`<re>` in each line in :code:`<range>` with :code:`<str>`.
+:code:`:<range>s/<RegEx>/<str>/<flags>` - substitute first instance of
+:code:`<RegEx>` in each line in :code:`<range>` with :code:`<str>`.
 :code:`<flags>` change default behavior.
 
 * :code:`<range>`:
-    * default range is this line only  
-    * :code:`%` - global (whole file)  
-    * :code:`<a>,<b>` - between lines/markers/etc  
-    * :code:`.` - current line  
-    * :code:`$` - last line in file (so :code:`:.,$s` is "from here to end
-      of file")  
-    * There are other :code:`<range>` things, most common is just
-      :code:`%`.  
+
+  - default range is this line only  
+  - :code:`%` - global (whole file)  
+  - :code:`<a>,<b>` - between lines/markers/etc  
+  - :code:`.` - current line  
+  - :code:`$` - last line in file (so :code:`:.,$s` is "from here to end of file")  
+  - There are other :code:`<range>` things, most common is just :code:`%`.  
+
 * :code:`<flags>` 
-    * :code:`g` - global/all instances of :code:`<re>` on line (not just
-      first instance on line)  
-    * :code:`c` - confirm (will highlight next instance of :code:`<re>` and
-      ask you to press "y" to execute change  
-    * :code:`i` - case insensitive  
+
+  - :code:`g` - global/all instances of :code:`<RegEx>` on line (not just first instance on line)  
+  - :code:`c` - confirm (will highlight next instance of :code:`<RegEx>` and ask you to press "y" to execute change  
+  - :code:`i` - case insensitive  
 
 Specific substitution: Use :code:`\zs` and :code:`\ze` to demark a sub-RegEx
 within the matched RegEx that should be substituted. Example: 
@@ -462,7 +464,7 @@ A shortcut around this is these motion-like object commands.
 * :code:`yaw` - Yanks a word.  
 * :code:`yiw` - Yanks inner word.  
 * :code:`ya(` - Yank a parenthetical. If the cursor is between (), yank everything between those parens and the parens themselves. Else do Nothing.  
-* :code:`yi(` - Yank inner parenthetical. Like :code:`ya(:code:`, but excluding the parens.  
+* :code:`yi(` - Yank inner parenthetical. Like :code:`ya(`, but excluding the parens.  
 * :code:`ya)` - :code:`ya(`
 * :code:`ya[` - Same as :code:`ya(` but for brackets :code:`[]`.
 * :code:`ya"` - Same but for :code:`"`.
@@ -501,16 +503,17 @@ replace, indent, etc.  **This is one of the most useful features in Vim.**
 Some examples:
 
 * :code:`A;<Esc>j.`
-    - Enter insert mode at end of line (:code:`A`),
-    - type a semi-colon (:code:`;`),
-    - exit Insert Mode; (:code:`<Esc>`),
-    - move down one line (:code:`j`),
-    - add a semi-colon to the end of this new line without leaving Normal Mode
-      (:code:`.` which equals :code:`A;<Esc>`).
-* :code:`>>...`
-    - Indent this line :code:`>>`,
-    - then indent it another three times (:code:`...`).
 
+  - Enter insert mode at end of line (:code:`A`),
+  - type a semi-colon (:code:`;`),
+  - exit Insert Mode; (:code:`<Esc>`),
+  - move down one line (:code:`j`),
+  - add a semi-colon to the end of this new line without leaving Normal Mode (:code:`.` which equals :code:`A;<Esc>`).
+
+* :code:`>>...`
+
+  - Indent this line :code:`>>`,
+  - then indent it another three times (:code:`...`).
 
 
 Marks
@@ -564,8 +567,7 @@ computers.
 Global command by line
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* :code:`:g/<RegEx>/<edit command>` - perform the edit command on every line that
-matches RegEx
+* :code:`:g/<RegEx>/<edit command>` - perform the edit command on every line that matches RegEx
 * :code:`:g!/...` or :code:`:v/...` - the same but for lines that don't match
   
 Examples:
