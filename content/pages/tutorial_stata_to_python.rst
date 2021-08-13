@@ -70,8 +70,8 @@ Input/Output
        explicitly call the :code:`print` function. Using a Jupyter notebook is
        the closest equivalent.
    * - :code:`help <command>`
-     - :code:`help(<command>)` OR :code:`<command>?` in IPython (as in
-       :code:`pd.read_stata?`)
+     - #. :code:`help(<command>)` OR
+       #. :code:`<command>?` in IPython (as in :code:`pd.read_stata?`)
    * - :code:`cd <directory>`
      - | :code:`import os`
        | :code:`os.chdir('<directory>')`
@@ -147,6 +147,26 @@ Data Info and Summary Statistics
    * - :code:`summ <var>, d`
      - :code:`df[<var>].describe()` plus :code:`df[<var>].quantile([.1, .25,
        .5, .75, .9])` or whatever other statistics you want.
+   * - :code:`tab var`
+     - :code:`df['var'].value_counts()`
+   * - :code:`tab var1 var2`
+     - 
+         #. :code:`pd.crosstab(df['var1'], df['var2'])`
+         #. .. code-block:: python3
+
+              df.groupby(['var1', 'var2'])
+                .size()
+                .unstack('var2')
+
+            Note that the :code:`.unstack(<var2>)` here is purely cosmetic: it
+            transforms the data from "long" to "wide" which is how crosstabs
+            are usually presented.
+   * - :code:`tab <var1> <var2>, summarize(<func>)`
+     - .. code-block:: python3
+
+         df.groupby(['var1', 'var2'])
+           .agg(<func>)
+           .unstack('var2')
 
 
 Variable Manipulation
