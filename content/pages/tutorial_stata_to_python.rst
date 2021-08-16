@@ -333,7 +333,7 @@ All :code:`bysort` and :code:`egen` commands will be compositions using
                  df
                  .sort_values(['group_var1', 'group_var2', 'sort_var1'])
                  .groupby(['var1', 'var2'])
-                 .transform(lambda x: x.first())
+                 .first()
              )
 
    * - :code:`bys group_var1 group_var2 (sort_var): keep if _n==j` where
@@ -344,7 +344,7 @@ All :code:`bysort` and :code:`egen` commands will be compositions using
               df
               .sort_values(['group_var1', 'group_var2', 'sort_var1'])
               .groupby(['var1', 'var2'])
-              .transform(lambda x: x.iloc[j, :])
+              .apply(lambda x: x.iloc[j, :])
           )
 
    * - :code:`bys group_var1 group_var2 (sort_var): gen jth_val = var[j]` where
@@ -354,7 +354,7 @@ All :code:`bysort` and :code:`egen` commands will be compositions using
           df['jth_val'] = (
               df
               .sort_values(['group_var1', 'group_var2', 'sort_var1'])
-              .groupby(['var1', 'var2'])['var]
+              .groupby(['var1', 'var2'])['var']
               .transform(lambda x: x.iloc[j])
           )
 
