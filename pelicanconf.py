@@ -56,7 +56,8 @@ MENUITEMS = (
 SOCIAL = (
     ('Github', 'http://github.com/dmsul'),
     ('Twitter', 'https://twitter.com/Dan_M_Sullivan'),
-    ('Email', 'mailto:sullivan@rff.org', 'envelope'),
+    ('Work Email', 'mailto:daniel.m.sullivan@jpmchase.com', 'envelope'),
+    ('Email', 'mailto:sullivan.dm3@gmail.com', 'envelope'),
 )
 
 LINKS = (
@@ -64,7 +65,7 @@ LINKS = (
      'https://scholar.google.com/citations?user=naLX3CIAAAAJ'),
     ('ORCID', 'http://orcid.org/0000-0002-0380-7681'),
     ('RePEc', 'https://ideas.repec.org/f/psu490.html'),
-    ('RFF page', 'http://www.rff.org/people/profile/daniel-m-sullivan'),
+    ('JPMC Institute', 'https://www.jpmorganchase.com/institute'),
 )
 
 
