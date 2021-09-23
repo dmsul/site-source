@@ -5,13 +5,43 @@
     <br />
 
 
+Reports and Briefs
+------------------
+
+- **"When unemployment insurance benefits are rolled back"** with Fiona Greig,
+  Peter Ganong, Pascal Noel, and Joseph Vavra |br|
+  July 2021 |rollback|_ 
+- **"Who benefits from student debt cancellation?"** with Fiona Greig |br|
+  March 2021 |cancellation|_
+- **"The unemployment benefit boost: Initial trends in spending and saving when
+  the $600 supplement ended"**  with Diana Farrell, Peter Ganong, Fiona Greig,
+  Max Liebeskind, Pascal Noel, and Joseph Vavra |br|
+  October 2020 |boost|_
+- **"Student Loan Debt: Who is Paying it Down?"** with Diana Farrell and Fiona
+  Greig |br|
+  October 2020 |studentdebt|_
+
+.. |rollback| image:: {filename}/images/external.png
+.. _rollback: https://www.jpmorganchase.com/institute/research/household-income-spending/when-unemployment-insurance-benefits-are-rolled-back
+
+.. |cancellation| image:: {filename}/images/external.png
+.. _cancellation: https://www.jpmorganchase.com/institute/research/household-debt/who-benefits-from-student-debt-cancellation
+
+.. |boost| image:: {filename}/images/external.png
+.. _boost: https://www.jpmorganchase.com/institute/research/labor-markets/the-unemployment-benefit-boost
+
+.. |studentdebt| image:: {filename}/images/external.png
+.. _studentdebt: https://www.jpmorganchase.com/institute/research/household-debt/student-loan-debt
+
 Working Papers
 --------------
 
-- **"Does pollution in cap-and-trade markets flow to poor neighborhoods?"** |br|
-  February 2019
+- **"Spending and Job Search Impacts of Expanded Unemployment Benefits:
+  Evidence from Administrative Micro Data"** with Peter Ganong, Fiona Greig,
+  Max Liebeskind, Pascal Noel, and Joseph Vavra |br|
+  February 2021 |jobsearch|_
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
-  Network"** with Alan Krupnick (*revisions requested*) |br|
+  Network"** with Alan Krupnick |br|
   January 2019 |moncoverage|_,
   `Summary <research_summary_satellites_fill_monitor_gaps.html>`__ |br|
   Press:
@@ -26,6 +56,9 @@ Working Papers
   March 2017 |pollhouse|_
 - **"Income Stagnation Among the Bankrupt"** with Frank McIntyre |br|
   May 2010 |bincome|_
+
+.. |jobsearch| image:: {filename}/images/pdf.png
+.. _jobsearch: https://cpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/7/914/files/2021/02/spending_job_search_expanded_ui.pdf
 
 .. |moncoverage| image:: {filename}/images/pdf.png
 .. _moncoverage: {filename}/pdf/Sullivan_Krupnick_Filling_monitor_gaps_with_satellites.pdf
@@ -43,10 +76,10 @@ Research in Progress
 --------------------
 
 - **"Air Pollution Impacts of Shale Gas Development in Pennsylvania"** with
-  Ruohauo Zhang, Huan Li, Neha Khanna, Alan Krupnick, and Elaine Hill
+  Ruohao Zhang, Huan Li, Neha Khanna, Alan Krupnick, and Elaine Hill
 - **"Does unconventional oil and gas development affect infant health through
   air pollution?”** with with Elaine Hill, Neha Khanna, Alan Krupnick, Huan Li,
-  and Ruohauo Zhang
+  and Ruohao Zhang
 
 
 Publications

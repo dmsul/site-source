@@ -23,7 +23,8 @@ DEFAULT_LANG = 'en'
 INDEX_SAVE_AS = 'blog.html'
 
 HOMEDIR = os.path.expanduser('~')
-THEME = os.path.join(HOMEDIR, 'proj', 'pelican-themes', 'pelican-bootstrap3')
+# THEME = os.path.join(HOMEDIR, 'proj', 'pelican-themes', 'pelican-bootstrap3')
+THEME = os.path.join(HOMEDIR, 'proj', 'pelican-digistrap3')
 
 PLUGIN_PATHS = [HOMEDIR + '/proj/pelican-plugins', ]
 PLUGINS = ['i18n_subsites', 'series', 'html_rst_directive']
@@ -45,28 +46,33 @@ MENUITEMS = (
     ('CV', '/pdf/Sullivan_CV.pdf'),
     ('Research', '/pages/research.html'),
     ('Code', '/pages/code.html'),
-    ('Tutorials', '/pages/tutorials.html'),
-    ('Contact', '/pages/contact.html'),
+    ('Tutorials', (
+        ('Stata-to-Python Equivalents', '/pages/tutorial_stata_to_python.html'),
+        ('Writing Code in Social Science', '/pages/tutorial_workflow_0overview.html'),
+        ('Python', '/pages/tutorial_intro_to_python.html'),
+        ('Git', '/pages/tutorial_git_0overview.html'),
+        ('Vim', '/pages/tutorial_vim.html'),
+        ('All tutorials', '/pages/tutorials.html'),
+    )
+    ),
 )
 
 # Social widget
 # GITHUB_USER = 'dmsul'
 # GITHUB_SKIP_FORK = True
-
+SOCIAL_WIDGET_NAME = 'Contact'
 SOCIAL = (
     ('Github', 'http://github.com/dmsul'),
+    ('LinkedIn', 'https://www.linkedin.com/in/daniel-sullivan-42134687'),
     ('Twitter', 'https://twitter.com/Dan_M_Sullivan'),
-    ('Email', 'mailto:sullivan@rff.org', 'envelope'),
-)
-
-LINKS = (
     ('Google Scholar',
-     'https://scholar.google.com/citations?user=naLX3CIAAAAJ'),
-    ('ORCID', 'http://orcid.org/0000-0002-0380-7681'),
-    ('RePEc', 'https://ideas.repec.org/f/psu490.html'),
-    ('RFF page', 'http://www.rff.org/people/profile/daniel-m-sullivan'),
+     'https://scholar.google.com/citations?user=naLX3CIAAAAJ',
+     'graduation-cap'),
+    ('Email', 'mailto:sullivan.dm3@gmail.com', 'envelope'),
+    ('Work Email', 'mailto:daniel.m.sullivan@jpmchase.com', 'inbox'),
+    # ('ORCID', 'http://orcid.org/0000-0002-0380-7681', 'orcid'),
+    # ('RePEc', 'https://ideas.repec.org/f/psu490.html'),
 )
-
 
 DEFAULT_PAGINATION = False
 DEFAULT_ORPHANS = 0
@@ -76,7 +82,7 @@ SUMMARY_MAX_LENGTH = 65
 # RELATIVE_URLS = True
 # XXX must be commented out when live
 
-AVATAR = 'images/dms_med.jpg'
+# AVATAR = 'images/dms_med.jpg'
 
 # CUSTOM_CSS = 'static/css/custom.css'  # XXX Can't get it to work
 
