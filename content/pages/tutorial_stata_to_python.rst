@@ -413,7 +413,7 @@ be hierarchical with mutiple levels. It is a much more general tool than
 Examples
 ~~~~~~~~
 
-.. code-block:: ipython
+.. code-block:: ipythonconsole
 
     In [1]: import numpy as np
 
@@ -527,7 +527,7 @@ The most fundamental reshape commands in Python/pandas are :code:`stack` and
 :code:`unstack`:
 
 
-.. code-block:: ipython
+.. code-block:: ipythonconsole
 
     In [1]: import pandas as pd
 
@@ -600,7 +600,7 @@ This is another good reason to label your index and columns. If you want to
 access either of those columns, you can do so as usual, using a tuple to
 differentiate between the two levels:
 
-.. code-block:: ipython
+.. code-block:: ipythonconsole
 
     In [11]: wide[('some_variable', 1)]
     Out[11]:
@@ -615,7 +615,7 @@ differentiate between the two levels:
 If you want to combine the two levels (like Stata defaults to), you can simply
 rename the columns:
 
-.. code-block:: ipython
+.. code-block:: ipythonconsole
 
     In [13]: wide_single_level_column = wide.copy()
 
