@@ -5,8 +5,8 @@
     <br />
 
 
-Reports and Briefs
-------------------
+Reports and Policy Briefs
+-------------------------
 
 - **"When unemployment insurance benefits are rolled back"** with Fiona Greig,
   Peter Ganong, Pascal Noel, and Joseph Vavra |br|
@@ -40,6 +40,11 @@ Working Papers
   Evidence from Administrative Micro Data"** with Peter Ganong, Fiona Greig,
   Max Liebeskind, Pascal Noel, and Joseph Vavra |br|
   February 2021 |jobsearch|_
+- **"Satellite Detection of Air Pollution: Air Quality Impacts of Shale
+  Gas Development in Pennsylvania"** with Ruohao Zhang, Huan Li, Neha Khanna,
+  Alan J. Krupnick, and Elaine L. Hill |br|
+  May 2020 |fracking|_ |br|
+  *Revise and Resubmit at JAERE*
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
   January 2019 |moncoverage|_,
@@ -57,6 +62,7 @@ Working Papers
 - **"Income Stagnation Among the Bankrupt"** with Frank McIntyre |br|
   May 2010 |bincome|_
 
+
 .. |jobsearch| image:: {filename}/images/pdf.png
 .. _jobsearch: https://cpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/7/914/files/2021/02/spending_job_search_expanded_ui.pdf
 
@@ -72,14 +78,9 @@ Working Papers
 .. |bincome| image:: {filename}/images/external.png
 .. _bincome: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1684616 
 
-Research in Progress
---------------------
+.. |fracking| image:: {filename}/images/pdf.png
+.. _fracking: https://ruohaozhang.weebly.com/uploads/1/3/1/0/131057686/fracking20200521.pdf
 
-- **"Air Pollution Impacts of Shale Gas Development in Pennsylvania"** with
-  Ruohao Zhang, Huan Li, Neha Khanna, Alan Krupnick, and Elaine Hill
-- **"Does unconventional oil and gas development affect infant health through
-  air pollution?”** with with Elaine Hill, Neha Khanna, Alan Krupnick, Huan Li,
-  and Ruohao Zhang
 
 
 Publications
