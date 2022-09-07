@@ -68,8 +68,8 @@ SOCIAL = (
     ('Google Scholar',
      'https://scholar.google.com/citations?user=naLX3CIAAAAJ',
      'graduation-cap'),
-    ('Email', 'mailto:sullivan.dm3@gmail.com', 'envelope'),
-    ('Work Email', 'mailto:daniel.m.sullivan@jpmchase.com', 'inbox'),
+    # ('Email', 'mailto:sullivan.dm3@gmail.com', 'envelope'),
+    # ('Work Email', 'mailto:daniel.m.sullivan@jpmchase.com', 'inbox'),
     # ('ORCID', 'http://orcid.org/0000-0002-0380-7681', 'orcid'),
     # ('RePEc', 'https://ideas.repec.org/f/psu490.html'),
 )
