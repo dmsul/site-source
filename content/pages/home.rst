@@ -1,16 +1,19 @@
 :save_as: index.html
 
+I am economist and research director at the `JPMorgan Chase Institute
+<jpmorganchaseinstitute.com>`_ where I lead research on topics in household finance,
+including household financial resiliency, student debt, and the effects of
+climate change on households.
 
-I am an economist and research lead at the `JPMorgan Chase Institute
-<jpmorganchaseinstitute.com>`_  where I lead teams studying student debt, consumer
-responses to government stimulus, unemployment insurance, and other labor
-market topics.
-
-Prior to the Institute, I was a research fellow at Resources for the
-Future where I researched household responses to air pollution and
-environmental regulation.
+Prior to joining the Insitute, he was a research fellow at Resources for the
+Future where he studied the economic effects of pollution and environmental
+gentrification.
 
 I also maintain an econometrics and data utilities package for Python
 called `Econtools <danielmsullivan.com/econtools>`_. 
+
+I graduated with a Ph.D. in Economics from Harvard University and a bachelor's
+degree in Mathematics and Economics from Brigham Young University.
+
 
 .. image:: {filename}/images/dms_med.jpg

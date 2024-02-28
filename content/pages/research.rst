@@ -8,6 +8,18 @@
 Reports and Policy Briefs
 -------------------------
 
+- **"Household Pulse: Balances through October 2023"** with Chris Wheat and Erica Deadman |br|
+  January 2024 |Pulse2401|_
+- **"How families used the advanced Child Tax Credit"** with Chris Wheat and Erica Deadman |br|
+  Novmeber 2022 |CTC1|_
+- **"Who benefits from the 2022 student debt cancellation?"** with Chris Wheat |br|
+  August 2022 |Cancel22|_
+- **"Income Driven Repayment: Who needs student loan payment relief?"** with Fiona Greig and Bernard Ho |br|
+  June 2022 |IDR|_
+- **“Lessons learned from the Pandemic Unemployment Assistance Program during COVID-19”** with Fiona Greig, Samantha Anderson, Peter Ganong, Pascal Noel, and Joseph Vavra |br|
+  April 2022 |UI2204|_
+- **"The Online Platform Economy through the Pandemic"** with Fiona Greig |br|
+  October 2021 |OPE|_
 - **"When unemployment insurance benefits are rolled back"** with Fiona Greig,
   Peter Ganong, Pascal Noel, and Joseph Vavra |br|
   July 2021 |rollback|_ 
@@ -20,6 +32,24 @@ Reports and Policy Briefs
 - **"Student Loan Debt: Who is Paying it Down?"** with Diana Farrell and Fiona
   Greig |br|
   October 2020 |studentdebt|_
+
+.. |Pulse2401| image:: {filename}/images/external.png
+.. _Pulse2401: https://www.jpmorganchase.com/institute/research/household-income-spending/household-pulse-cash-balances-through-october-2023
+
+.. |Cancel22| image:: {filename}/images/external.png
+.. _Cancel22: https://www.jpmorganchase.com/institute/research/household-debt/2022-student-debt-loan-forgiveness-cancellation
+
+.. |IDR| image:: {filename}/images/external.png
+.. _IDR: https://www.jpmorganchase.com/institute/research/household-debt/student-loan-income-driven-repayment
+
+.. |CTC1| image:: {filename}/images/external.png
+.. _CTC1: https://www.jpmorganchase.com/institute/research/household-income-spending/how-families-used-advanced-CTC
+
+.. |UI2204| image:: {filename}/images/external.png
+.. _UI2204: https://www.jpmorganchase.com/institute/research/household-income-spending/lessons-learned-pandemic-unemployment-assistance-program-covid
+
+.. |OPE| image:: {filename}/images/external.png
+.. _OPE: https://www.jpmorganchase.com/institute/research/labor-markets/online-platform-economy-through-the-pandemic
 
 .. |rollback| image:: {filename}/images/external.png
 .. _rollback: https://www.jpmorganchase.com/institute/research/household-income-spending/when-unemployment-insurance-benefits-are-rolled-back
@@ -36,15 +66,6 @@ Reports and Policy Briefs
 Working Papers
 --------------
 
-- **"Spending and Job Search Impacts of Expanded Unemployment Benefits:
-  Evidence from Administrative Micro Data"** with Peter Ganong, Fiona Greig,
-  Max Liebeskind, Pascal Noel, and Joseph Vavra |br|
-  February 2021 |jobsearch|_
-- **"Satellite Detection of Air Pollution: Air Quality Impacts of Shale
-  Gas Development in Pennsylvania"** with Ruohao Zhang, Huan Li, Neha Khanna,
-  Alan J. Krupnick, and Elaine L. Hill |br|
-  May 2020 |fracking|_ |br|
-  *Revise and Resubmit at JAERE*
 - **"Using Satellite Data to Fill the Gaps in the US Air Pollution Monitoring
   Network"** with Alan Krupnick |br|
   January 2019 |moncoverage|_,
@@ -63,9 +84,6 @@ Working Papers
   May 2010 |bincome|_
 
 
-.. |jobsearch| image:: {filename}/images/pdf.png
-.. _jobsearch: https://cpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/7/914/files/2021/02/spending_job_search_expanded_ui.pdf
-
 .. |moncoverage| image:: {filename}/images/pdf.png
 .. _moncoverage: {filename}/pdf/Sullivan_Krupnick_Filling_monitor_gaps_with_satellites.pdf
 
@@ -78,17 +96,23 @@ Working Papers
 .. |bincome| image:: {filename}/images/external.png
 .. _bincome: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1684616 
 
-.. |fracking| image:: {filename}/images/pdf.png
-.. _fracking: https://ruohaozhang.weebly.com/uploads/1/3/1/0/131057686/fracking20200521.pdf
 
 
 
 Publications
 ------------
 
+- Ganong, Peter, Fiona Greig, Pascal Noel, Daniel M. Sullivan, and Joe Vavra. 2023. "Spending and Job Finding Impacts of Expanded Unemployment Benefits: Evidence from Administrative Micro Data." Conditionally accepted, *American Economic Review* |UIMicro|_
+- Zhang, Ruohao, Huan Li, Neha Khanna, Alan J. Krupnick, Elaine L. Hill, and Daniel M. Sullivan. 2023. "Air Quality Impacts of Shale Gas Development in Pennsylvania." *Journal of the Association of Environmental and Resource Economists.* 10(2):447--486. |fracking|_
 - McIntyre, Frank, Daniel M. Sullivan, and Laura Summers. 2015. "Lawyers Steer
   Clients toward Lucrative Filings: Evidence from Consumer Bankruptcy."
   *American Law and Economics Review* 17(1):245--289. |steer|_
+
+.. |UIMicro| image:: {filename}/images/pdf.png
+.. _UIMicro: https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/1/801/files/2023/08/pandemic_ui.pdf
+
+.. |fracking| image:: {filename}/images/external.png
+.. _fracking: https://www.journals.uchicago.edu/doi/full/10.1086/721430
   
 .. |steer| image:: {filename}/images/external.png
 .. _steer: http://aler.oxfordjournals.org/content/17/1/245.short
